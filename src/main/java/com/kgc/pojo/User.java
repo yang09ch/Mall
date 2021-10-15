@@ -6,7 +6,7 @@ import java.io.Serializable;
 @Data
 public class User implements Serializable {
     private Integer userId;//主键
-            private String  userName;//姓名
+            private String  userName;//用户名
     private String  userNickName;///昵称
             private String  userPassword;//密码
     private String  userRealname;//真实姓名

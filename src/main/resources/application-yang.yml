@@ -19,4 +19,4 @@ logging:
     com.kgc.mapper: debug
   config: classpath:lombok-spring.xml
 server:
-  port: 8081
+  port: 8080

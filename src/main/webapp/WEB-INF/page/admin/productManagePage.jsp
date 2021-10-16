@@ -202,11 +202,11 @@
 <body>
 <div class="frm_div text_info">
     <div class="frm_group">
-        <label class="frm_label" id="lbl_product_name" for="input_product_name">产品名称</label>
-        <input class="frm_input" id="input_product_name" type="text" maxlength="50"/>
+        <label class="frm_label" id="lbl_product_name"  for="input_product_name" >产品名称</label>
+        <input class="frm_input" id="input_product_name" name="productName" type="text" maxlength="50"/>
         <label class="frm_label" id="lbl_product_category_id" for="select_product_category">产品类型</label>
-        <select class="selectpicker" id="select_product_category" data-size="8">
-            <option value="0">全部</option>
+        <select class="selectpicker" id="select_product_category" data-size="8" name="productCategoryId">
+            <option value="-1">全部</option>
             <c:forEach items="${requestScope.categoryList}" var="category">
                 <option value="${category.categoryId}">${category.categoryName}</option>
             </c:forEach>
@@ -224,9 +224,9 @@
         <label class="frm_label" id="lbl_product_isEnabled_special" for="checkbox_product_isEnabled_special">促销中</label>
 
         <label class="frm_label"  id="lbl_product_sale_price" for="input_product_sale_price">金额</label>
-        <input class="frm_input frm_num"  id="input_product_sale_price" type="text" placeholder="最低价" maxlength="10">
+        <input class="frm_input frm_num"  id="input_product_sale_price" type="text" placeholder="最低价" maxlength="10" name="firstPrice">
         <span id="text_cut">—</span>
-        <input class="frm_input frm_num"  id="input_product_price" type="text" placeholder="最高价" maxlength="10">
+        <input class="frm_input frm_num"  id="input_product_price" type="text" placeholder="最高价" maxlength="10" name="lastPrice">
         <span class="frm_error_msg" id="text_product_msg"></span>
     </div>
     <div class="frm_group_last">
@@ -287,7 +287,7 @@
         </tr>
         </thead>
         <tbody>
-        <c:forEach items="${requestScope.productList}" var="product">
+        <c:forEach items="${requestScope.productList.list}" var="product">
             <tr>
                 <td><input type="checkbox" class="cbx_select" id="cbx_product_select_${product.productId}"><label for="cbx_product_select_${product.productId}"></label></td>
                 <td title="${product.productName}">${product.productName}</td>

@@ -3,5 +3,32 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.kgc.mapper.ProductMapper">
-
+    <sql id="productSql">
+        <where>
+            <if test="productName!=null and productName!=''">
+                and productName like concat('%',#{productName},'%')
+            </if>
+            <if test="firstPrice!=null and firstPrice!='' and lastPrice!=null and lastPrice!=''">
+                and productPrice between #{firstPrice} and #{lastPrice}
+            </if>
+            <if test="productCategoryId!=-1">
+                and productCategoryId=#{productCategoryId}
+            </if>
+            <if test="productIsEnabled!=null and productIsEnabled!=''">
+                and productIsEnabled in
+                <foreach collection="array" close=")" open="(" separator="," item="productIsEnabled">
+                    #{productIsEnabled}
+                </foreach>
+            </if>
+        </where>
+    </sql>
+<select id="getProductCount" resultType="int">
+    SELECT COUNT(*) FROM product
+    <include refid="productSql"></include>
+</select>
+    <select id="getProductLimit" resultType="com.kgc.pojo.Product">
+        select * from product
+        <include refid="productSql"></include>
+        limit #{pageIndex},#{pageSize}
+    </select>
 </mapper>

@@ -14,4 +14,8 @@ public interface AdminMapper {
      * @return
      */
     Admin getAdminLogin(@Param("adminName") String adminName,@Param("adminPassword") String adminPassword);
+    /**
+     * 新增管理员
+     */
+    int addAdmin(Admin admin);
 }

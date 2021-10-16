@@ -39,11 +39,11 @@
                  src="${ctx}/res/images/admin/loginPage/default_profile_picture-128x128.png"
                  alt="头像" title="头像"
                  onerror="this.src='${ctx}/res/images/admin/loginPage/default_profile_picture-128x128.png'"/>
-            <form id="form_login">
-                <input type="text" class="form-control form_control" placeholder="用户名" id="input_username" title="请输入用户名"/>
-                <input type="password" class="form-control form_control" placeholder="密码" id="input_password" title="请输入密码" autocomplete="on">
+            <form id="form_login" method="post" action="/admin/getLogin">
+                <input type="text" class="form-control form_control" placeholder="用户名" id="input_username" title="请输入用户名" name="adminName"/>
+                <input type="password" class="form-control form_control" placeholder="密码" id="input_password" title="请输入密码" autocomplete="on" name="adminPassword">
                 <span id="txt_error_msg"></span>
-                <input type="button" class="btn btn-danger" id="btn_login" value="登录"/>
+                <input type="submit" class="btn btn-danger" id="btn_login" value="登录"/>
             </form>
         </div>
     </div>

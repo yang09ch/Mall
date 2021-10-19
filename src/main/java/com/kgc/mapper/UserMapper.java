@@ -4,6 +4,8 @@ import com.kgc.pojo.User;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
+import java.util.List;
+
 @Mapper
 public interface UserMapper {
     /**
@@ -24,5 +26,5 @@ public interface UserMapper {
      * 分页条件查询 用户信息
      */
     int getUserCount(@Param("userName") String userName);
-    List<User> getUserLimit(@Param("userName") String userName,@Param("pageIndex") Integer pageIndex,@Param("pageSize") Integer pageSize);
+    List<User> getUserLimit(@Param("userName") String userName, @Param("pageIndex") Integer pageIndex, @Param("pageSize") Integer pageSize);
 }

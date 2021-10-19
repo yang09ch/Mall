@@ -40,7 +40,12 @@ public class AjaxController {
         List<Address> districtList = addressService.districtList(id);
        map.put("addressList",addresses);
        map.put("childAddressList",districtList);
+       map.put("success",true);
         return map;
     }
 
+    @RequestMapping("/doRegister")
+    public String doRegister(User user){
+        return "["+userService.addUser(user)+"]";
+    }
 }

@@ -7,11 +7,11 @@ $(function () {
     $('#select_user_address_province').change(function () {
         $.ajax({
             type: "GET",
-            url: contextPath+"/toUserLogin/address/"+$(this).val(),
-            dataType: "text",
+            url: contextPath+"/ajax/address/"+$(this).val(),
+            dataType: "json",
             success: function (data) {
                 $(".loader").hide();
-                if (data.success()) {
+                if (data.success) {
                             $("#select_user_address_city").empty();
                             $("#select_user_address_district").empty();
                             for (var i = 0; i < data.addressList.length; i++) {
@@ -44,7 +44,7 @@ $(function () {
     $("#select_user_address_city").change(function () {
         $.ajax({
             type: "GET",
-            url: contextPath+"/address/" + $(this).val(),
+            url: contextPath+"/ajax/address/" + $(this).val(),
             data: null,
             dataType: "json",
             success: function (data) {
@@ -112,7 +112,7 @@ $(function () {
 
     //非空验证
     $("#register_sub").click(function () {
-        alert(contextPath);
+      /*  alert(contextPath);*/
         //用户名
         var userName = $.trim($("input[name=userName]").val());
         //密码
@@ -161,7 +161,7 @@ $(function () {
         }
         $.ajax({
             type: "POST",
-            url: contextPath+"/register/doRegister",
+            url: contextPath+"/ajax/doRegister",
             data: {
                 "userName": userName,
                 "userPassword": userPassword,
@@ -170,16 +170,16 @@ $(function () {
                 "userGender": userGender,
                 "userAddress": userAddress
             },
-            dataType: "json",
+            dataType: "text",
             success: function (data) {
-                if (data.success) {
+                if (data!=0) {
                     $(".msg").stop(true, true).animate({
                         opacity: 1
                     }, 550, function () {
                         $(".msg").animate({
                             opacity: 0
                         }, 1500, function () {
-                            location.href = contextPath+"/login";
+                            location.href = contextPath+"/user/UserLogin";
                         });
                     });
                 } else {

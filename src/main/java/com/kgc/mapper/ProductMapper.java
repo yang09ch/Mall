@@ -32,4 +32,13 @@ public interface ProductMapper {
                                   @Param("pageIndex") Integer pageIndex,
                                   @Param("pageSize") Integer pageSize,
                                   @Param("productIsEnabled") Object...productIsEnabled);
+    /**
+     * 根基 商品类型查询 正则出售或者是促销的商品（显示前8条记录）
+     */
+    Product getProductArray(Integer productCategoryId);
+
+    /**
+     * 轮播  进行绑定数据 展示前六条
+     */
+    List<Product> getLunPo();
 }

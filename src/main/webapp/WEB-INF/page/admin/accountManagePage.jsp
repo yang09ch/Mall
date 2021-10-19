@@ -180,14 +180,14 @@
 </head>
 <body>
 <div class="details_div_first">
-    <input type="hidden" value="${requestScope.admin.adminId}" id="details_admin_id"/>
+    <input type="hidden" value="${sessionScope.admin.adminId}" id="details_admin_id"/>
     <div class="frm_div">
         <label class="frm_label text_info" id="lbl_admin_id">管理员编号</label>
-        <span class="details_value" id="span_admin_id">${requestScope.admin.adminId}</span>
+        <span class="details_value" id="span_admin_id">${sessionScope.admin.adminId}</span>
     </div>
     <div class="frm_div">
         <label class="frm_label text_info" id="lbl_admin_name">账户名</label>
-        <span class="details_value" id="span_admin_name">${requestScope.admin.adminName}</span>
+        <span class="details_value" id="span_admin_name">${sessionScope.admin.adminName}</span>
     </div>
 </div>
 <div class="details_div">
@@ -195,7 +195,7 @@
     <div class="frm_div">
         <label class="frm_label text_info" id="lbl_admin_profile_picture">管理员头像</label>
         <img
-                src="${ctx}/res/images/item/adminProfilePicture/${requestScope.admin.adminProfilePictureSrc}"
+                src="${ctx}/res/images/item/adminProfilePicture/${sessionScope.admin.adminProfilePictureSrc}"
                 id="admin_profile_picture" width="84px" height="84px"
                 onerror="this.src='${ctx}/res/images/admin/loginPage/default_profile_picture-128x128.png'"/>
         <input type="file" onchange="uploadImage(this)" accept="image/*" id="uploadImage">
@@ -203,7 +203,7 @@
     <div class="frm_div">
         <label class="frm_label text_info" id="lbl_admin_nickname" for="input_admin_nickname">管理员昵称</label>
         <input class="frm_input" id="input_admin_nickname" type="text" maxlength="50"
-               value="${requestScope.admin.adminNickName}"/>
+               value="${sessionScope.admin.adminNickname}"/>
     </div>
 </div>
 <div class="details_div">

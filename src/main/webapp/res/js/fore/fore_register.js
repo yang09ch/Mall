@@ -7,38 +7,37 @@ $(function () {
     $('#select_user_address_province').change(function () {
         $.ajax({
             type: "GET",
-            url: contextPath+"/address/" + $(this).val(),
-            data: null,
-            dataType: "json",
+            url: contextPath+"/toUserLogin/address/"+$(this).val(),
+            dataType: "text",
             success: function (data) {
                 $(".loader").hide();
-                if (data.success) {
-                    $("#select_user_address_city").empty();
-                    $("#select_user_address_district").empty();
-                    for (var i = 0; i < data.addressList.length; i++) {
-                        var address_id = data.addressList[i].addressAreaId;
-                        var addressName = data.addressList[i].addressName;
-                        $("#select_user_address_city").append("<option value='" + address_id + "'>" + addressName + "</option>")
-                    }
-                    for (var j = 0; j < data.childAddressList.length; j++) {
-                        var childAddress_id = data.childAddressList[j].addressAreaId;
-                        var childAddress_name = data.childAddressList[j].addressName;
-                        $("#select_user_address_district").append("<option value='" + childAddress_id + "'>" + childAddress_name + "</option>")
-                    }
-                    $('#select_user_address_city').selectpicker('refresh');
-                    $("#select_user_address_district").selectpicker('refresh');
-                    $("span.address-province").text($("#select_user_address_province").find("option:selected").text());
-                    $("span.address-city").text($("#select_user_address_city").find("option:selected").text());
-                    $("span.address_district").text($("#select_user_address_district").find("option:selected").text());
-                } else {
-                    alert("加载地区信息失败，请刷新页面再试！")
+                if (data.success()) {
+                            $("#select_user_address_city").empty();
+                            $("#select_user_address_district").empty();
+                            for (var i = 0; i < data.addressList.length; i++) {
+                                var address_id = data.addressList[i].addressAreaId;
+                                var addressName = data.addressList[i].addressName;
+                            $("#select_user_address_city").append("<option value='" + address_id + "'>" + addressName + "</option>")
+                        }
+                         for (var j = 0; j < data.childAddressList.length; j++) {
+                            var childAddress_id = data.childAddressList[j].addressAreaId;
+                            var childAddress_name = data.childAddressList[j].addressName;
+                            $("#select_user_address_district").append("<option value='" + childAddress_id + "'>" + childAddress_name + "</option>")
+                        }
+                        $('#select_user_address_city').selectpicker('refresh');
+                        $("#select_user_address_district").selectpicker('refresh');
+                        $("span.address-province").text($("#select_user_address_province").find("option:selected").text());
+                        $("span.address-city").text($("#select_user_address_city").find("option:selected").text());
+                        $("span.address_district").text($("#select_user_address_district").find("option:selected").text());
+            } else {
+                alert("加载地区信息失败，请刷新页面再试！")
                 }
             },
             beforeSend: function () {
                 $(".loader").show();
             },
             error: function () {
-                alert("加载地区信息失败，请刷新页面再试！")
+                alert("加载地区信息失败，请刷新页面然后再试！")
             }
         });
     });

@@ -63,7 +63,7 @@
         <div class="sns-main">
             <div id="tips-box">
                 <label class="font_we">亲爱的</label>
-                <b>${requestScope.user.userName}</b>，
+                <b>${sessionScope.user.userName}</b>，
                 <label  class="font_we">填写真实的资料，有助于好友找到你哦。</label>
             </div>
             <form action="${ctx}/user/update" method="post" id="register_form">
@@ -71,7 +71,7 @@
                     <label class="form-label tsl">当前头像：</label>
                     <ul class="details_picList" id="product_single_list">
                         <li class="details_picList_fileUpload">
-                            <img src="${ctx}/res/images/item/userProfilePicture/${requestScope.user.userProfilePictureSrc}"
+                            <img src="${ctx}/res/images/item/userProfilePicture/${sessionScope.user.userProfilePictureSrc}"
                                  onerror="this.src='${ctx}/res/images/admin/loginPage/default_profile_picture-128x128.png'"
                                  id="header_image" width="128px" height="128px">
                             <input type="file" onchange="uploadImage(this)" id="userProfilePictureSrc" accept="image/*">
@@ -81,13 +81,13 @@
                 </div>
                 <div class="form-item">
                     <label class="form-label tsl">昵称：</label>
-                    <input name="userNickName" value="${requestScope.user.userNickName}" id="userNickName"
+                    <input name="userNickName" value="${sessionScope.user.userNickName}" id="userNickName"
                            class="form-text err-input" maxlength="20">
                     <span class="form_span"></span>
                 </div>
                 <div class="form-item">
                     <label class="form-label tsl">真实姓名：</label>
-                    <input name="userRealName" value="${requestScope.user.userRealName}" id="userRealName"
+                    <input name="userRealName" value="${sessionScope.user.userRealName}" id="userRealName"
                            class="form-text err-input" maxlength="20">
                     <span class="form_span"></span>
                 </div>
@@ -115,7 +115,7 @@
                 <div class="form-item">
                     <label class="form-label tsl">生日：</label>
                     <input type="date" name="userBirthday" id="userBirthday" class="form-text err-input"
-                           value="${requestScope.user.userBirthday}" maxlength="20">
+                           value="${sessionScope.user.userBirthday}" maxlength="20">
                     <span class="form_span"></span>
                 </div>
                 <div class="form-item last-item">

@@ -4,6 +4,8 @@ import com.kgc.pojo.Admin;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
+import java.util.List;
+
 //管理员
 @Mapper
 public interface AdminMapper {
@@ -18,4 +20,5 @@ public interface AdminMapper {
      * 新增管理员
      */
     int addAdmin(Admin admin);
+
 }

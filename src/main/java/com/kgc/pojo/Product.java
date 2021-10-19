@@ -4,6 +4,8 @@ import lombok.Data;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.util.List;
+
 //商品信息
 @Data
 public class Product implements Serializable {
@@ -15,4 +17,5 @@ public class Product implements Serializable {
            private String  productCreateDate;//促销价
     private Integer productCategoryId;//类别编号
             private Integer productIsEnabled;//商品状态
+    private List<Productimage> singleProductImageList;
 }

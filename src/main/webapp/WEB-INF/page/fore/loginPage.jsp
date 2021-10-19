@@ -67,8 +67,8 @@
                 <input type="submit" class="loginButton" value="登 录">
             </form>
             <div class="loginLinks">
-                <a href="#">忘记密码</a>
-                <a href="#">忘记会员名</a>
+                <a href="javascript:void(0)">忘记密码</a>
+                <a href="javascript:void(0)">忘记会员名</a>
                 <a href="${ctx}/register">免费注册</a>
             </div>
             <div class="error_message">

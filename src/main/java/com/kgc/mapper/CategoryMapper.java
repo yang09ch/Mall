@@ -2,6 +2,7 @@ package com.kgc.mapper;
 
 import com.kgc.pojo.Category;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -13,4 +14,14 @@ public interface CategoryMapper {
      * @return
      */
     List<Category> getCategoryAll();
+
+    /**
+     * 分页查询 产品类型
+     */
+    int getCategoryCount(@Param("categoryName") String categoryName);
+    List<Category> getCategoryLimmitAll(@Param("categoryName") String categoryName, @Param("pageIndex") Integer pageIndex,@Param("pageSize")  Integer pageSize);
+    /**
+     * 新增产品类型
+     */
+    int addCategory(Category category);
 }

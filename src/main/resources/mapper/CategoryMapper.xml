@@ -3,7 +3,14 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.kgc.mapper.CategoryMapper">
-<select id="getCategoryAll" resultType="com.kgc.pojo.Category">
-    select * from category
+    <resultMap id="getALL" type="com.kgc.pojo.Category">
+        <id property="categoryId" column="categoryId"></id>
+        <collection property="productList" ofType="com.kgc.pojo.Product">
+            <id column="productId" property="productId"></id>
+        </collection>
+    </resultMap>
+<select id="getCategoryAll" resultMap="getALL">
+ SELECT * FROM category c
+ LEFT JOIN product p ON c.categoryId=p.productCategoryId
 </select>
 </mapper>

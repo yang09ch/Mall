@@ -45,12 +45,12 @@ $(function () {
         if (yn) {
             $.ajax({
                 type: "POST",
-                url: contextPath + "/login/doLogin",
+                url: contextPath + "/ajax/toUserLogin",
                 data: {"username": $.trim($("#name").val()), "password": $.trim($("#password").val())},
-                dataType: "json",
+                dataType: "text",
                 success: function (data) {
                     $(".loginButton").val("登 录");
-                    if (data.success) {
+                    if (data=="ok") {
                         location.href = contextPath+"/";
                     } else {
                         styleUtil.errorShow($("#error_message_p"), "用户名和密码错误！");

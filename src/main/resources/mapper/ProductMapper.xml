@@ -31,4 +31,12 @@
         <include refid="productSql"></include>
         limit #{pageIndex},#{pageSize}
     </select>
+
+    <select id="getProductArray" resultType="com.kgc.pojo.Product">
+        SELECT * FROM product WHERE productCategoryId=#{productCategoryId} AND productIsEnabled IN(0,2)
+        ORDER BY productId DESC LIMIT 8
+    </select>
+    <select id="getLunPo" resultType="com.kgc.pojo.Product">
+        SELECT * FROM product WHERE productIsEnabled=2 LIMIT 6
+    </select>
 </mapper>

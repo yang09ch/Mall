@@ -3,6 +3,7 @@ package com.kgc.service.impl;
 import com.kgc.mapper.CategoryMapper;
 import com.kgc.pojo.Category;
 import com.kgc.service.CategoryService;
+import com.kgc.util.PageUtil;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -16,5 +17,15 @@ public class CategoryServiceImpl implements CategoryService {
     @Override
     public List<Category> getCategoryAll() {
         return categoryMapper.getCategoryAll();
+    }
+
+    @Override
+    public PageUtil<Category> getCategoryLimitPage(String categoryName, Integer pageIndex, Integer pageSize) {
+        return null;
+    }
+
+    @Override
+    public int addCategory(Category category) {
+        return 0;
     }
 }

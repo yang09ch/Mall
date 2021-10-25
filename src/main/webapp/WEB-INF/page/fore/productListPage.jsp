@@ -71,7 +71,7 @@
                 <c:forEach items="${requestScope.productList}" var="product">
                     <div class="context_productStyle">
                         <div class="context_product">
-                            <a href="${ctx}/product/${product.productId}"
+                            <a href="${ctx}/product/product/${product.productId}"
                                target="_blank"><img class="context_product_imgMain"
                                                     src="${ctx}/res/images/item/productSinglePicture/${product.singleProductImageList[0].productImageSrc}"/></a>
                             <ul class="context_product_imgList">

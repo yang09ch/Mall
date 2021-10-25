@@ -18,4 +18,7 @@ public class Product implements Serializable {
     private Integer productCategoryId;//类别编号
             private Integer productIsEnabled;//商品状态
     private List<Productimage> singleProductImageList;
+    private List<Category> productCategory;//商品类型
+    private Integer productSaleCount;//总成交数量
+    private Integer productReviewCount;//评论次数
 }

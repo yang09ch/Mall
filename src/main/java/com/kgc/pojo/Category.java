@@ -12,4 +12,5 @@ public class Category implements Serializable {
             private String  categoryName;//名称
     private String  categoryImageSrc;//图片
     private List<Product> productList;
+    private List<Product> complexProductList;
 }

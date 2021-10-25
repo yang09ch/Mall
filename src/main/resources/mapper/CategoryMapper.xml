@@ -9,8 +9,9 @@
             <id column="productId" property="productId"></id>
         </collection>
     </resultMap>
-<select id="getCategoryAll" resultMap="getALL">
+    <!--  resultMap="getALL"   -->
+<select id="getCategoryAll"   resultType="com.kgc.pojo.Category" >
  SELECT * FROM category c
- LEFT JOIN product p ON c.categoryId=p.productCategoryId
+/* LEFT JOIN product p ON c.categoryId=p.productCategoryId*/
 </select>
 </mapper>

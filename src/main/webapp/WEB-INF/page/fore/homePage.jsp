@@ -16,7 +16,7 @@
     <div class="header">
         <img src="${ctx}/res/images/fore/WebsiteImage/HomeLogoB.png">
         <div class="mallSearch">
-            <form action="${ctx}/product" method="get">
+            <form action="${ctx}/product/product" method="get">
                 <div class="mallSearch-input">
                     <input class="header_search_input" type="text" name="productName" placeholder="搜索 商品/品牌/店铺"
                            maxlength="50">
@@ -65,7 +65,6 @@
                 <img src="${ctx}/res/images/fore/WebsiteImage/small/${category.categoryId}.png">
                 <a href="${ctx}/product?categoryId=${category.categoryId}">${category.categoryName}</a>
                 <div class="banner_div" name="${category.categoryName}">
-
                 </div>
             </li>
         </c:forEach>
@@ -91,7 +90,7 @@
                     </div>
                     <a href="${ctx}/product?categoryId=${category.categoryId}"><img
                             class="banner_goods_show"
-                            src="res/images/fore/WebsiteImage/show/${category.categoryId}.jpg"></a>
+                            src="${ctx}/res/images/fore/WebsiteImage/show/${category.categoryId}.jpg"></a>
                     <div class="banner_goods_items">
                         <c:forEach items="${category.productList}" var="product" varStatus="i">
                             <c:if test="${i.index<8}">

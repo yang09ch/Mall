@@ -1,10 +1,15 @@
 package com.kgc.controller;
 
+import com.alibaba.fastjson.JSON;
 import com.kgc.pojo.Address;
+import com.kgc.pojo.Category;
+import com.kgc.pojo.Product;
 import com.kgc.pojo.User;
 import com.kgc.service.AddressService;
+import com.kgc.service.CategoryService;
+import com.kgc.service.ProductService;
 import com.kgc.service.UserService;
-import com.kgc.vo.AddressVo;
+import org.apache.ibatis.jdbc.Null;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,6 +29,10 @@ public class AjaxController {
     UserService userService;
     @Resource
     AddressService addressService;
+    @Resource
+    CategoryService categoryService;
+    @Resource
+    ProductService productService;
     @RequestMapping("/toUserLogin")//登录
     public String toUserLogin(String username, String password, HttpSession session){
         User userLogin = userService.getUserLogin(username, password);
@@ -34,18 +43,34 @@ public class AjaxController {
        return "no";
     }
     @GetMapping(value = "/address/{id}",produces = {"application/json;charset=utf-8"})
-    public Map<String,Object> address(@PathVariable("id") Integer id){
-        Map<String,Object> map=new HashMap<>();
-        List<Address> addresses = addressService.cityList(id);
-        List<Address> districtList = addressService.districtList(id);
-       map.put("addressList",addresses);
-       map.put("childAddressList",districtList);
-       map.put("success",true);
-        return map;
-    }
+    public Map<String,Object> address(@PathVariable("id") String id){
+            Map<String,Object> map=new HashMap<>();
+            List<Address> addresses = addressService.cityList(id);
+            List<Address> districtList = addressService.districtList(addresses.get(0).getAddressAreaId());
+            map.put("addressList",addresses);
+            map.put("childAddressList",districtList);
+            map.put("success",true);
+            return map;
+    }/*省 市 区绑定*/
 
     @RequestMapping("/doRegister")
     public String doRegister(User user){
         return "["+userService.addUser(user)+"]";
     }
+  @RequestMapping(value = "/nav/{id}")
+    public Map<String,Object> showNav(@PathVariable Integer id){
+      List<Category> list = categoryService.getCategoryAll();
+      Map<String,Object> map=new HashMap<>();
+      Category c=new Category();
+      for (int i=0;i<list.size();i++){
+          if (list.get(i).getCategoryId()==id){
+              c.setComplexProductList(productService.getProductList(id));
+          }
+      }
+      map.put("success",true);
+      map.put("category",c);
+      return map;
+
+
+  }
 }

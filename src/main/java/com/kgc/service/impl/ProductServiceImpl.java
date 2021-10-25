@@ -1,6 +1,4 @@
 package com.kgc.service.impl;
-
-import com.kgc.mapper.CategoryMapper;
 import com.kgc.mapper.ProductMapper;
 import com.kgc.pojo.Product;
 import com.kgc.service.ProductService;
@@ -31,13 +29,29 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public Product getProductByCategoryId(Integer productCategoryId) {
+    public List<Product> getProductArray(Integer productCategoryId) {
         return productMapper.getProductArray(productCategoryId);
     }
+
 
     @Override
     public List<Product> getLunPo() {
         return productMapper.getLunPo();
+    }
+
+    @Override
+    public List<Product> getProductAll(String productName) {
+        return productMapper.getProductAll(productName);
+    }
+
+    @Override
+    public List<Product> getProductList(Integer productCategoryId) {
+        return productMapper.getProductList(productCategoryId);
+    }
+
+    @Override
+    public int getProductNameByCount(String productName) {
+        return productMapper.getProductNameByCount(productName);
     }
 
 }

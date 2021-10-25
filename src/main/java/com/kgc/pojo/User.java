@@ -9,7 +9,7 @@ public class User implements Serializable {
             private String  userName;//用户名
     private String  userNickName;///昵称
             private String  userPassword;//密码
-    private String  userRealname;//真实姓名
+    private String  userRealName;//真实姓名
             private int userGender;//性别
     private String  userBirthday;//生日
             private String  userAddress;//收货地址

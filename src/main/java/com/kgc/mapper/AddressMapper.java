@@ -16,9 +16,13 @@ public interface AddressMapper {
     /**
      * 获取 省内的市
      */
-    List<Address> cityList(@Param("addressRegionId") Integer addressRegionId);
+    List<Address> cityList(@Param("addressRegionId") String addressRegionId);
     /**
      * 获取省内市内的区
      */
-    List<Address> districtList(@Param("addressRegionId") Integer addressRegionId);
+    List<Address> districtList(@Param("addressRegionId") String addressRegionId);
+    /**
+     * 根据 userAddress 获取 市 区
+     */
+    Address getByUserAddress(String addressAreaId);
 }

@@ -14,7 +14,11 @@ public class ProductorderServiceImpl implements ProductorderService {
     ProductorderMapper productorderMapper;
 
     @Override
-    public PageUtil<Productorder> getProductorderPage(String productorderCode, String productorderPost, Integer pageIndex, Integer pageSize, Object... productorderStatus) {
-        return null;
+    public PageUtil<Productorder> getProductorderPage(String productorderCode, String productorderPost, Integer pageIndex, Integer pageSize, Object...productorderStatus) {
+        PageUtil<Productorder> pageUtil=new PageUtil<>();
+        pageUtil.setPageIndex(pageIndex);
+        pageUtil.setPageSize(pageSize);
+
+        return pageUtil;
     }
 }

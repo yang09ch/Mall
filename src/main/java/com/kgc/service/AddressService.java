@@ -12,9 +12,13 @@ public interface AddressService {
     /**
      * 获取 省内的市
      */
-    List<Address> cityList(Integer addressRegionId);
+    List<Address> cityList(String addressRegionId);
     /**
      * 获取省内市内的区
      */
-    List<Address> districtList(Integer addressRegionId);
+    List<Address> districtList(String addressRegionId);
+    /**
+     * 根据 userAddress 获取 市 区
+     */
+    Address getByUserAddress(String addressAreaId);
 }

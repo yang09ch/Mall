@@ -10,4 +10,9 @@ import javax.annotation.Resource;
 public class ProductorderitemServiceImpl implements ProductorderitemService {
     @Resource
     ProductorderitemMapper productorderitemMapper;
+
+    @Override
+    public int getProductorderItemCount(Integer productorId) {
+        return productorderitemMapper.getProductorderItemCount(productorId);
+    }
 }

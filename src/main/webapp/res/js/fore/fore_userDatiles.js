@@ -7,7 +7,7 @@ $(function () {
     $('#select_user_address_province').change(function () {
         $.ajax({
             type: "GET",
-            url: contextPath+"/address/" + $(this).val(),
+            url: contextPath+"/ajax/address/" + $(this).val(),
             data: null,
             dataType: "json",
             success: function (data) {
@@ -45,7 +45,7 @@ $(function () {
     $("#select_user_address_city").change(function () {
         $.ajax({
             type: "GET",
-            url: contextPath+"/address/" + $(this).val(),
+            url: contextPath+"/ajax/address/" + $(this).val(),
             data: null,
             dataType: "json",
             success: function (data) {

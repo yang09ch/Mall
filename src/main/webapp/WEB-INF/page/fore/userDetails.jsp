@@ -48,7 +48,7 @@
 <div class="content">
     <div class="mt-menu" id="J_MtSideMenu">
         <div class="mt-avatar">
-            <img src="${ctx}/res/images/item/userProfilePicture/${requestScope.user.userProfilePictureSrc}"
+            <img src="${ctx}/res/images/item/userProfilePicture/${sessionScope.user.userProfilePictureSrc}"
                  onerror="this.src='${ctx}/res/images/admin/loginPage/default_profile_picture-128x128.png'"
                  width="128px" height="128px">
         </div>
@@ -106,10 +106,10 @@
                 <div class="form-item">
                     <label class="form-label tsl">性别：</label>
                     <input name="userGender" type="radio" id="form_radion" value="0"
-                           <c:if test="${requestScope.user.userGender == 0}">checked="checked"</c:if>><span
+                           <c:if test="${sessionScope.user.userGender == 0}">checked="checked"</c:if>><span
                         class="radio_value">男</span>
                     <input name="userGender" type="radio" id="form_radions" value="1"
-                           <c:if test="${requestScope.user.userGender == 1}">checked="checked"</c:if>><span
+                           <c:if test="${sessionScope.user.userGender == 1}">checked="checked"</c:if>><span
                         class="radio_value">女</span>
                 </div>
                 <div class="form-item">

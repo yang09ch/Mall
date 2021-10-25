@@ -19,12 +19,17 @@ public class AddressServiceImpl implements AddressService {
     }
 
     @Override
-    public List<Address> cityList(Integer addressRegionId) {
+    public List<Address> cityList(String addressRegionId) {
         return addressMapper.cityList(addressRegionId);
     }
 
     @Override
-    public List<Address> districtList(Integer addressRegionId) {
+    public List<Address> districtList(String addressRegionId) {
         return addressMapper.districtList(addressRegionId);
+    }
+
+    @Override
+    public Address getByUserAddress(String addressAreaId) {
+        return addressMapper.getByUserAddress(addressAreaId);
     }
 }

@@ -3,10 +3,12 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.kgc.mapper.UserMapper">
+<!--    /*注册*/-->
 <insert id="addUser" parameterType="com.kgc.pojo.User">
 INSERT INTO `user`(userName,userPassword,userNickName,userGender,userBirthday,userHomePlace,userAddress)
  VALUES(#{userName},#{userPassword},#{userNickName},#{userGender},#{userBirthday},#{userAddress},#{userAddress})
 </insert>
+ <!--   /*登录*/-->
     <select id="getUserLogin" resultType="com.kgc.pojo.User">
         select * from `user` where userName=#{userName} and userPassword=#{userPassword}
     </select>

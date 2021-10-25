@@ -7,6 +7,6 @@ import java.io.Serializable;
 public class Productimage implements Serializable {
     private Integer productimageId;//主键
            private Integer productimageType;//图片类型
-    private String  productimageSrc;//图片路径
+    private String  productImageSrc;//图片路径
             private Integer productimageProductId;//商品编号
 }

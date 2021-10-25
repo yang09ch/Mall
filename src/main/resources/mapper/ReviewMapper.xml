@@ -3,5 +3,7 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.kgc.mapper.ReviewMapper">
-
+<select id="getReviewCount" resultType="int">
+    SELECT COUNT(reviewId) FROM review WHERE reviewProductId=#{productId}
+</select>
 </mapper>

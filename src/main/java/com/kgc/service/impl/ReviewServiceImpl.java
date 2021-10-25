@@ -10,4 +10,9 @@ import javax.annotation.Resource;
 public class ReviewServiceImpl implements ReviewService {
     @Resource
     ReviewMapper reviewMapper;
+
+    @Override
+    public int getReviewCount(Integer productId) {
+        return reviewMapper.getReviewCount(productId);
+    }
 }

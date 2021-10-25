@@ -33,7 +33,7 @@
         <ul class="quick_li">
             <li class="quick_li_MyTaobao">
                 <div class="sn_menu">
-                    <a href="${ctx}/userDetails">我的Mall<b></b></a>
+                    <a href="${ctx}/user/userDetails">我的Mall<b></b></a>
                     <div class="quick_menu">
                         <a href="${ctx}/order/0/10">已买到的宝贝</a>
                         <a href="#">已卖出的宝贝</a>
@@ -70,19 +70,19 @@
                         <ul>
                             <li>
                                 <h3>商家：</h3>
-                                <a href="">商家中心</a>
-                                <a href="">Mall规则</a>
-                                <a href="">商家入驻</a>
-                                <a href="">运营服务</a>
-                                <a href="">商家品控</a>
-                                <a href="">商家工具</a>
-                                <a href="">Mall智库</a>
-                                <a href="">喵言喵语</a>
+                                <a href="javascript:void(0)">商家中心</a>
+                                <a href="javascript:void(0)">Mall规则</a>
+                                <a href="javascript:void(0)">商家入驻</a>
+                                <a href="javascript:void(0)">运营服务</a>
+                                <a href="javascript:void(0)">商家品控</a>
+                                <a href="javascript:void(0)">商家工具</a>
+                                <a href="javascript:void(0)">Mall智库</a>
+                                <a href="javascript:void(0)">喵言喵语</a>
                             </li>
                             <li>
                                 <h3>帮助：</h3>
-                                <a href="">帮助中心</a>
-                                <a href="">问商友</a>
+                                <a href="javascript:void(0)">帮助中心</a>
+                                <a href="javascript:void(0)">问商友</a>
                             </li>
                         </ul>
                     </div>
@@ -95,60 +95,60 @@
                         <div class="site-hot">
                             <h2>热点推荐<span>Hot</span></h2>
                             <ul>
-                                <li><a href="">Mall超市</a></li>
-                                <li><a href="">Mall生鲜</a></li>
-                                <li><a href="">科技新品</a></li>
-                                <li><a href="">女装新品</a></li>
-                                <li><a href="">酷玩街</a></li>
-                                <li><a href="">内衣新品</a></li>
-                                <li><a href="">试美妆</a></li>
-                                <li><a href="">运动新品</a></li>
-                                <li><a href="">时尚先生</a></li>
-                                <li><a href="">精明妈咪</a></li>
-                                <li><a href="">吃乐会</a></li>
-                                <li><a href="">企业采购</a></li>
-                                <li><a href="">会员积分</a></li>
-                                <li><a href="">Mall国际</a></li>
-                                <li><a href="">品质频道</a></li>
+                                <li><a href="javascript:void(0)">Mall超市</a></li>
+                                <li><a href="javascript:void(0)">Mall生鲜</a></li>
+                                <li><a href="javascript:void(0)">科技新品</a></li>
+                                <li><a href="javascript:void(0)">女装新品</a></li>
+                                <li><a href="javascript:void(0)">酷玩街</a></li>
+                                <li><a href="javascript:void(0)">内衣新品</a></li>
+                                <li><a href="javascript:void(0)">试美妆</a></li>
+                                <li><a href="javascript:void(0)">运动新品</a></li>
+                                <li><a href="javascript:void(0)">时尚先生</a></li>
+                                <li><a href="javascript:void(0)">精明妈咪</a></li>
+                                <li><a href="javascript:void(0)">吃乐会</a></li>
+                                <li><a href="javascript:void(0)">企业采购</a></li>
+                                <li><a href="javascript:void(0)">会员积分</a></li>
+                                <li><a href="javascript:void(0)">Mall国际</a></li>
+                                <li><a href="javascript:void(0)">品质频道</a></li>
                             </ul>
                         </div>
                         <div class="site-market">
                             <h2>行业市场<span>Market</span></h2>
                             <ul>
-                                <li><a href="">美妆</a></li>
-                                <li><a href="">电器</a></li>
-                                <li><a href="">女装</a></li>
-                                <li><a href="">男装</a></li>
-                                <li><a href="">女鞋</a></li>
-                                <li><a href="">男鞋</a></li>
-                                <li><a href="">内衣</a></li>
-                                <li><a href="">箱包</a></li>
-                                <li><a href="">运动</a></li>
-                                <li><a href="">母婴</a></li>
-                                <li><a href="">家装</a></li>
-                                <li><a href="">医药</a></li>
-                                <li><a href="">食品</a></li>
-                                <li><a href="">配饰</a></li>
-                                <li><a href="">汽车</a></li>
+                                <li><a href="javascript:void(0)">美妆</a></li>
+                                <li><a href="javascript:void(0)">电器</a></li>
+                                <li><a href="javascript:void(0)">女装</a></li>
+                                <li><a href="javascript:void(0)">男装</a></li>
+                                <li><a href="javascript:void(0)">女鞋</a></li>
+                                <li><a href="javascript:void(0)">男鞋</a></li>
+                                <li><a href="javascript:void(0)">内衣</a></li>
+                                <li><a href="javascript:void(0)">箱包</a></li>
+                                <li><a href="javascript:void(0)">运动</a></li>
+                                <li><a href="javascript:void(0)">母婴</a></li>
+                                <li><a href="javascript:void(0)">家装</a></li>
+                                <li><a href="javascript:void(0)">医药</a></li>
+                                <li><a href="javascript:void(0)">食品</a></li>
+                                <li><a href="javascript:void(0)">配饰</a></li>
+                                <li><a href="javascript:void(0)">汽车</a></li>
                             </ul>
                         </div>
                         <div class="site-brand">
                             <h2>品牌风尚<span>Brand</span></h2>
                             <ul>
-                                <li><a href="">尚Mall</a></li>
-                                <li><a href="">大牌街</a></li>
-                                <li><a href="">潮牌街</a></li>
-                                <li><a href="">Mall原创</a></li>
-                                <li><a href="">什么牌子好</a></li>
+                                <li><a href="javascript:void(0)">尚Mall</a></li>
+                                <li><a href="javascript:void(0)">大牌街</a></li>
+                                <li><a href="javascript:void(0)">潮牌街</a></li>
+                                <li><a href="javascript:void(0)">Mall原创</a></li>
+                                <li><a href="javascript:void(0)">什么牌子好</a></li>
                             </ul>
                         </div>
                         <div class="site-help">
                             <h2>服务指南<span>Help</span></h2>
                             <ul>
-                                <li><a href="">帮助中心</a></li>
-                                <li><a href="">品质保障</a></li>
-                                <li><a href="">特色服务</a></li>
-                                <li><a href="">7天退换货</a></li>
+                                <li><a href="javascript:void(0)">帮助中心</a></li>
+                                <li><a href="javascript:void(0)">品质保障</a></li>
+                                <li><a href="javascript:void(0)">特色服务</a></li>
+                                <li><a href="javascript:void(0)">7天退换货</a></li>
                             </ul>
                         </div>
                     </div>

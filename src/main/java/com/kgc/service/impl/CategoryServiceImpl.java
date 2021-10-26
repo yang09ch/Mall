@@ -28,4 +28,9 @@ public class CategoryServiceImpl implements CategoryService {
     public int addCategory(Category category) {
         return 0;
     }
+
+    @Override
+    public Category getCategoryById(Integer cateId) {
+        return categoryMapper.getCategoryById(cateId);
+    }
 }

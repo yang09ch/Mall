@@ -71,7 +71,7 @@
                 <c:forEach items="${requestScope.productList}" var="product">
                     <div class="context_productStyle">
                         <div class="context_product">
-                            <a href="${ctx}/product/product/${product.productId}"
+                            <a href="${ctx}/product/toGetProduct/${product.productId}"
                                target="_blank"><img class="context_product_imgMain"
                                                     src="${ctx}/res/images/item/productSinglePicture/${product.singleProductImageList[0].productImageSrc}"/></a>
                             <ul class="context_product_imgList">
@@ -106,7 +106,7 @@
                     <li>看看输入的文字是否有误</li>
                     <li>调整关键词，如“全铜花洒套件”改成“花洒”或“花洒 套件”</li>
                     <li>
-                        <form action="${ctx}/product" method="get">
+                        <form action="${ctx}/product/product" method="get">
                             <input title="查询产品" type="text" class="errorInput" name="productName"
                                    value="${requestScope.searchValue}">
                             <input type="submit" value="去Mall搜索" class="errorBtn">

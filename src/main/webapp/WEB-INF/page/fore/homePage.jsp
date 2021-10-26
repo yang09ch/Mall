@@ -63,7 +63,7 @@
         <c:forEach items="${requestScope.categoryList}" var="category">
             <li data-toggle="${category.categoryId}" data-status="">
                 <img src="${ctx}/res/images/fore/WebsiteImage/small/${category.categoryId}.png">
-                <a href="${ctx}/product?categoryId=${category.categoryId}">${category.categoryName}</a>
+                <a href="${ctx}/product/product?categoryId=${category.categoryId}">${category.categoryName}</a>
                 <div class="banner_div" name="${category.categoryName}">
                 </div>
             </li>
@@ -88,16 +88,16 @@
                         <span></span>
                         <p>${category.categoryName}</p>
                     </div>
-                    <a href="${ctx}/product?categoryId=${category.categoryId}"><img
+                    <a href="${ctx}/product/product?categoryId=${category.categoryId}"><img
                             class="banner_goods_show"
                             src="${ctx}/res/images/fore/WebsiteImage/show/${category.categoryId}.jpg"></a>
                     <div class="banner_goods_items">
                         <c:forEach items="${category.productList}" var="product" varStatus="i">
                             <c:if test="${i.index<8}">
                                 <div class="banner_goods_item">
-                                    <a href="product/${product.productId}" class="goods_link"></a>
+                                    <a href="product/toGetProduct/${product.productId}" class="goods_link"></a>
                                     <img src="${ctx}/res/images/item/productSinglePicture/${product.singleProductImageList[0].productImageSrc}">
-                                    <a href="product/${product.productId}"
+                                    <a href="product/toGetProduct/${product.productId}"
                                        class="goods_name">${product.productName}</a>
                                     <span class="goods_price">￥${product.productSalePrice}</span>
                                 </div>

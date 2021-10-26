@@ -27,4 +27,12 @@ public interface UserMapper {
      */
     int getUserCount(@Param("userName") String userName);
     List<User> getUserLimit(@Param("userName") String userName, @Param("pageIndex") Integer pageIndex, @Param("pageSize") Integer pageSize);
+    /**
+     * 修改个人信息
+     */
+    int getUserUpdate(User user);
+    /**
+     * 根据id获取对象
+     */
+    User getUserGetById(Integer userId);
 }

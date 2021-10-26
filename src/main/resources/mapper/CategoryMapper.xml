@@ -11,7 +11,9 @@
     </resultMap>
     <!--  resultMap="getALL"   -->
 <select id="getCategoryAll"   resultType="com.kgc.pojo.Category" >
- SELECT * FROM category c
-/* LEFT JOIN product p ON c.categoryId=p.productCategoryId*/
+ SELECT * FROM category
 </select>
+    <select id="getCategoryById" resultType="com.kgc.pojo.Category">
+        select  * from category where categoryId=#{cateId}
+    </select>
 </mapper>

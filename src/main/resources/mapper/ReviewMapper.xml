@@ -6,4 +6,7 @@
 <select id="getReviewCount" resultType="int">
     SELECT COUNT(reviewId) FROM review WHERE reviewProductId=#{productId}
 </select>
+    <select id="getReviewByProductId" resultType="com.kgc.pojo.Review">
+        select  * from review where reviewProductId=#{productid}
+    </select>
 </mapper>

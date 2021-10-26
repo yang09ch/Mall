@@ -20,12 +20,17 @@ public interface ProductService {
     /**
      * 模糊查询商品
      */
-    List<Product> getProductAll(String productName);
+    List<Product> getProductAll(String productName,Integer productCategoryId);
     /*根据id获取商品查询*/
     List<Product> getProductList(Integer productCategoryId);
     /**
      * 根据搜索框输入的商品查询 存在数量
      */
     int getProductNameByCount(String productName);
+    /**
+     * 根据商品id 获取商品的对象
+     */
+    Product getByProductId(Integer productId);
+
 
 }

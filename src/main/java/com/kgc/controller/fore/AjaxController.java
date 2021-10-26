@@ -1,4 +1,4 @@
-package com.kgc.controller;
+package com.kgc.controller.fore;
 
 import com.alibaba.fastjson.JSON;
 import com.kgc.pojo.Address;

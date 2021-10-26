@@ -18,4 +18,8 @@ public interface ProductimageMapper {
      * 获取商品的预览图 根据商品id
      */
     List<Productimage> getProductImgeYulan(Integer productimageProductid);
+    /**
+     * 获取详细图
+     */
+    List<Productimage> getProductImageXIan(Integer productimageProductid);
 }

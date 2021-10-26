@@ -12,4 +12,31 @@ INSERT INTO `user`(userName,userPassword,userNickName,userGender,userBirthday,us
     <select id="getUserLogin" resultType="com.kgc.pojo.User">
         select * from `user` where userName=#{userName} and userPassword=#{userPassword}
     </select>
+    <update id="getUserUpdate" parameterType="com.kgc.pojo.User">
+        update `user`
+        <set>
+            <if test="userNickName!=null and userNickName!=''">
+                userNickName=#{userNickName},
+            </if>
+            <if test="userPassword!=null and userPassword!=''">
+                userPassword=#{userPassword},
+            </if>
+            <if test="userRealName!=null and userRealName!=''">
+                userRealname=#{userRealName},
+            </if>
+            <if test="userGender!=null and userGender!=''">
+                userGender=#{userGender},
+            </if>
+            <if test="userBirthday!=null and userBirthday!=''">
+                userBirthday=#{userBirthday},
+            </if>
+            <if test="userAddress!=null and userAddress!=''">
+                userAddress=#{userAddress},
+            </if>
+        </set>
+        where userId=#{userId}
+    </update>
+    <select id="getUserGetById" resultType="com.kgc.pojo.User">
+        select * from `user` where userId=#{userId}
+    </select>
 </mapper>

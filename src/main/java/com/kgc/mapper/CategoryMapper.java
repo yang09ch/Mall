@@ -24,4 +24,8 @@ public interface CategoryMapper {
      * 新增产品类型
      */
     int addCategory(Category category);
+    /**
+     * 根据类型id 获取对象
+     */
+    Category getCategoryById(Integer cateId);
 }

@@ -3,6 +3,7 @@ package com.kgc.mapper;
 import com.kgc.pojo.Product;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -46,9 +47,13 @@ public interface ProductMapper {
     /**
      * 模糊查询商品
      */
-    List<Product> getProductAll(@Param("productName") String productName);
+    List<Product> getProductAll(@Param("productName") String productName,@Param("productCategoryId") Integer productCategoryId);
     /**
      * 根据搜索框输入的商品查询 存在数量
      */
     int getProductNameByCount(String productName);
+    /**
+     * 根据商品id 获取商品的对象
+     */
+    Product getByProductId(Integer productId);
 }

@@ -1,4 +1,4 @@
-package com.kgc.controller;
+package com.kgc.controller.fore;
 
 import com.kgc.pojo.Category;
 import com.kgc.pojo.Product;
@@ -21,8 +21,12 @@ public class HomeController {
     ProductService productService;
     @Resource
     ProductimageService productimageService;
-    //首页
     @RequestMapping("/")
+    public String index(){
+        return "redirect:/home";
+    }
+    //首页
+    @RequestMapping("/home")
     public String index0(Model model){
         List<Category> categoryList = categoryService.getCategoryAll();
      for (int i=0;i<categoryList.size();i++){

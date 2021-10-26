@@ -22,4 +22,9 @@ public class ProductimageServiceImpl implements ProductimageService {
     public List<Productimage> getProductImgeYulan(Integer productimageProductid) {
         return productimageMapper.getProductImgeYulan(productimageProductid);
     }
+
+    @Override
+    public List<Productimage> getProductImageXIan(Integer productimageProductid) {
+        return productimageMapper.getProductImageXIan(productimageProductid);
+    }
 }

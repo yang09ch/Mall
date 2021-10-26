@@ -31,4 +31,14 @@ public class UserServiceImpl implements UserService {
         pageUtil.setList(userMapper.getUserLimit(userName, (pageIndex-1)*pageSize, pageSize));
         return pageUtil;
     }
+
+    @Override
+    public int getUserUpdate(User user) {
+        return userMapper.getUserUpdate(user);
+    }
+
+    @Override
+    public User getUserGetById(Integer userId) {
+        return userMapper.getUserGetById(userId);
+    }
 }

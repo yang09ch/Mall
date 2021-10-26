@@ -21,7 +21,7 @@
         <img src="${ctx}/res/images/fore/WebsiteImage/detailsHeaderA.png"
              class="shopAssessHeader">
         <div class="shopSearchHeader">
-            <form action="${ctx}/product" method="get">
+            <form action="${ctx}/product/product" method="get">
                 <div class="shopSearchInput">
                     <input type="text" class="searchInput" name="productName" placeholder="搜索 商品/品牌/店铺"
                            maxlength="50">

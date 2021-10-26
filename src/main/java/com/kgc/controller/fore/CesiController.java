@@ -1,4 +1,4 @@
-package com.kgc.controller;
+package com.kgc.controller.fore;
 
 import com.kgc.service.ProductService;
 import org.springframework.stereotype.Controller;

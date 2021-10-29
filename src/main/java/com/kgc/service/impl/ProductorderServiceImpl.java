@@ -21,4 +21,19 @@ public class ProductorderServiceImpl implements ProductorderService {
 
         return pageUtil;
     }
+
+    @Override
+    public PageUtil<Productorder> getProductorderLimit(String productorderStatus,Integer productorderUserId, Integer pageIndex, Integer pageSize) {
+        PageUtil<Productorder> pageUtil=new PageUtil<>();
+        pageUtil.setPageIndex(pageIndex);
+        pageUtil.setPageSize(pageSize);
+        pageUtil.setTotalCount(productorderMapper.getProductorderCount(productorderStatus,productorderUserId));
+        pageUtil.setList(productorderMapper.getProductorderList(productorderStatus, productorderUserId,(pageIndex)*pageSize, pageSize));
+        if (pageUtil==null){
+            pageUtil.setHasPrev(false);
+        }else {
+            pageUtil.setHasPrev(true);
+        }
+        return pageUtil;
+    }
 }

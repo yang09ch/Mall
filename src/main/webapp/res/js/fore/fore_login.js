@@ -47,10 +47,10 @@ $(function () {
                 type: "POST",
                 url: contextPath + "/ajax/toUserLogin",
                 data: {"username": $.trim($("#name").val()), "password": $.trim($("#password").val())},
-                dataType: "text",
+                dataType: "json",
                 success: function (data) {
                     $(".loginButton").val("登 录");
-                    if (data=="ok") {
+                    if (data.success) {
                         location.href = contextPath+"/";
                     } else {
                         styleUtil.errorShow($("#error_message_p"), "用户名和密码错误！");

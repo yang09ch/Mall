@@ -12,4 +12,6 @@ public interface ReviewService {
      */
     List<Review> getReviewByProductId(Integer productid);
 
+    boolean getIsReview(Integer productId);
+
 }

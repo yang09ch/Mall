@@ -14,4 +14,5 @@ public interface ReviewMapper {
      * 获商品的评论
      */
     List<Review> getReviewByProductId(Integer productid);
+
 }

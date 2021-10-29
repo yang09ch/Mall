@@ -1,4 +1,4 @@
-package com.kgc.controller.fore;
+package com.kgc.controller.admin;
 
 import com.kgc.pojo.Admin;
 import com.kgc.service.AdminService;

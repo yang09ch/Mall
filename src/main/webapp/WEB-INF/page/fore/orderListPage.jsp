@@ -58,7 +58,7 @@
                     src="${ctx}/res/images/fore/WebsiteImage/tmallLogoD.png"></a>
         </div>
         <div class="shopSearchHeader">
-            <form action="${ctx}/product" method="get">
+            <form action="${ctx}/product/product" method="get">
                 <div class="shopSearchInput">
                     <input type="text" class="searchInput" name="productName" placeholder="搜索 商品/品牌/店铺"
                            maxlength="50">
@@ -68,7 +68,7 @@
             <ul>
                 <c:forEach items="${requestScope.categoryList}" var="category" varStatus="i">
                     <li>
-                        <a href="${ctx}/product?categoryId=${category.categoryId}">${category.categoryName}</a>
+                        <a href="${ctx}/product/product?categoryId=${category.categoryId}">${category.categoryName}</a>
                     </li>
                 </c:forEach>
             </ul>

@@ -3,5 +3,22 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.kgc.mapper.ProductorderMapper">
-
+    <sql id="getCount">
+        <where>
+            productorderUserId=#{productorderUserId}
+            <if test="productorderStatus!= null and productorderStatus!=''">
+                and productorderStatus=#{productorderStatus}
+            </if>
+        </where>
+    </sql>
+<select id="getProductorderCount" resultType="int">
+    select count(*) from productorder
+    <include refid="getCount"></include>
+</select>
+    <select id="getProductorderList" resultType="com.kgc.pojo.Productorder">
+        select * from productorder
+        <include refid="getCount"></include>
+        order by productorderPayDate desc
+        limit #{pageIndex},#{pageSize}
+    </select>
 </mapper>

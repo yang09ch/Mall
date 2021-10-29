@@ -13,4 +13,8 @@ public interface ProductorderService {
      * 详情
      */
 
+    /**
+     *  分页查询订单 根据状态查询所有订单
+     */
+    PageUtil<Productorder> getProductorderLimit(String productorderStatus,Integer productorderUserId,Integer pageIndex,Integer pageSize);
 }

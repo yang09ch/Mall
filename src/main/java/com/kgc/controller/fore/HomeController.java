@@ -28,7 +28,7 @@ public class HomeController {
     //首页
     @RequestMapping("/home")
     public String index0(Model model){
-        List<Category> categoryList = categoryService.getCategoryAll();
+        List<Category> categoryList = categoryService.getCategoryAll();//商品类型集合
      for (int i=0;i<categoryList.size();i++){
             Category category=categoryList.get(i);
             category.setProductList(productService.getProductArray(category.getCategoryId()));

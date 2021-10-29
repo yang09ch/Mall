@@ -34,13 +34,17 @@ public class AjaxController {
     @Resource
     ProductService productService;
     @RequestMapping("/toUserLogin")//登录
-    public String toUserLogin(String username, String password, HttpSession session){
+    public Map<String,Object> toUserLogin(String username, String password, HttpSession session){
         User userLogin = userService.getUserLogin(username, password);
+        Map<String,Object> map=new HashMap<>();
        if (userLogin!=null){
            session.setAttribute("user",userLogin);
-           return "ok";
+           map.put("success",true);
+
+       }else {
+           map.put("success",false);
        }
-       return "no";
+     return map;
     }
     @GetMapping(value = "/address/{id}",produces = {"application/json;charset=utf-8"})
     public Map<String,Object> address(@PathVariable("id") String id){

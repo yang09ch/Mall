@@ -7,6 +7,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class CeshiController {
     @RequestMapping("/aaaaa")
     public String index(){
-        return "fore/productDetailsPage";
+        return "fore/productBuyCarPage";
     }
 }

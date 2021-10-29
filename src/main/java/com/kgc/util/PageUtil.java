@@ -9,6 +9,15 @@ public class PageUtil<T> {
     private Integer pageCount;
     private Integer totalCount;
     private List<T> list;
+    private Boolean isHasPrev;
+
+    public Boolean getHasPrev() {
+        return isHasPrev;
+    }
+
+    public void setHasPrev(Boolean hasPrev) {
+        isHasPrev = hasPrev;
+    }
 
     public Integer getPageIndex() {
         return pageIndex;

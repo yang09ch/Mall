@@ -17,10 +17,10 @@ public class Product implements Serializable {
            private String  productCreateDate;//促销价
     private Integer productCategoryId;//类别编号
             private Integer productIsEnabled;//商品状态
-    private List<Productimage> singleProductImageList;//图片类型
+    private List<Productimage> singleProductImageList;//预览图片类型
     private Category productCategory;//商品类型
     private Integer productSaleCount;//总成交数量
     private Integer productReviewCount;//评论次数
     private List<Review>  reviewList;//评论集合
-    private List<Productimage> detailProductImageList;//商品图片集合
+    private List<Productimage> detailProductImageList;//详细商品图片集合
 }

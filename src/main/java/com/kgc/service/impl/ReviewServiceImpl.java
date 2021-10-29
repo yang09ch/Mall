@@ -22,4 +22,13 @@ public class ReviewServiceImpl implements ReviewService {
     public List<Review> getReviewByProductId(Integer productid) {
         return reviewMapper.getReviewByProductId(productid);
     }
+
+    @Override
+    public boolean getIsReview(Integer productId) {
+        if (reviewMapper.getReviewCount(productId)>0){
+            return true;
+        }else {
+            return false;
+        }
+    }
 }

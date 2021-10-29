@@ -107,7 +107,7 @@ $(function () {
         if (yn) {
             $.ajax({
                 type: "POST",
-                url: contextPath+"/login/doLogin",
+                url: contextPath + "/ajax/toUserLogin",
                 data: {"username": $.trim($("#name").val()), "password": $.trim($("#password").val())},
                 dataType: "json",
                 success: function (data) {
@@ -181,7 +181,7 @@ function getGuessLoveProducts() {
                     var productId = data.loveProductList[i].productId;
                     var productSalePrice = data.loveProductList[i].productSalePrice;
                     $(".context_ul_goodsList").children("ul").append("<li class='context_ul_main'><div class='context_ul_img'>" +
-                        "<a href='/product/" + productId + "'><img src='/res/images/item/productSinglePicture/" + src + "'/></a><p>¥" + productSalePrice + ".00</p></div></li>"
+                        "<a href='/product/toGetProduct/" + productId + "'><img src='/res/images/item/productSinglePicture/" + src + "'/></a><p>¥" + productSalePrice + ".00</p></div></li>"
                     );
                 }
             }

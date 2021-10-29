@@ -3,7 +3,7 @@ $(function () {
     //主页切换动画
     getTimer();
     var timer = setInterval(getTimer, 3000);
-    $(".banner_main > a").attr("href", contextPath+"/product/" + $("#banner1").attr("name"));
+    $(".banner_main > a").attr("href", contextPath+"/product/toGetProduct/" + $("#banner1").attr("name"));
     //单击商品分类链接时
     $(".banner_div a").click(function () {
         $(".banner_main").unbind("click");
@@ -40,7 +40,7 @@ $(function () {
                             if (index !== -1) {
                                 productTitle = productTitle.substring(0, index);
                             }
-                            hot_word_div.append("<a href='product/" + list/*[i]*/[j].productId + "'>" + productTitle + "</a>");
+                            hot_word_div.append("<a href='product/toGetProduct/" + list/*[i]*/[j].productId + "'>" + productTitle + "</a>");
                           /*  if (j%5==0){
                                 hot_word_div.append("<br>");
                                 continue;

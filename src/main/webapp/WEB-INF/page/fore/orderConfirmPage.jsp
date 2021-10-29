@@ -21,7 +21,7 @@
                 src="${ctx}/res/images/fore/WebsiteImage/tmallLogoD.png"></a>
     </div>
     <div class="shopSearchHeader">
-        <form action="${ctx}/product" method="get">
+        <form action="${ctx}/product/product" method="get">
             <div class="shopSearchInput">
                 <input type="text" class="searchInput" name="productName" placeholder="搜索 商品/品牌/店铺"
                        maxlength="50">
@@ -84,7 +84,7 @@
                     <td width="500px"><img
                             src="${ctx}/res/images/item/productSinglePicture/${orderItem.productOrderItemProduct.singleProductImageList[0].productImageSrc}"
                             style="width: 50px;height: 50px;"/><span class="span_product_name"><a
-                            href="${ctx}/product/${orderItem.productOrderItemProduct.productId}"
+                            href="${ctx}/product/product/${orderItem.productOrderItemProduct.productId}"
                             target="_blank">${orderItem.productOrderItemProduct.productName}</a></span>
                     </td>
                     <td><span

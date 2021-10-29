@@ -36,20 +36,20 @@
                     <a href="${ctx}/user/userDetails">我的Mall<b></b></a>
                     <div class="quick_menu">
                         <a href="${ctx}/order/0/10">已买到的宝贝</a>
-                        <a href="#">已卖出的宝贝</a>
+                        <a href="javascript:void(0)">已卖出的宝贝</a>
                     </div>
                 </div>
             </li>
             <li class="quick_li_cart">
                 <img src="${ctx}/res/images/fore/WebsiteImage/buyCar.png">
-                <a href="${ctx}/cart">购物车</a>
+                <a href="${ctx}/cart/cart">购物车</a>
             </li>
             <li class="quick_li_menuItem">
                 <div class="sn_menu">
-                    <a href="#">收藏夹<b></b></a>
+                    <a href="javascript:void(0)">收藏夹<b></b></a>
                     <div class="quick_menu">
-                        <a href="#">收藏的宝贝</a>
-                        <a href="#">收藏的店铺</a>
+                        <a href="javascript:void(0)">收藏的宝贝</a>
+                        <a href="javascript:void(0)">收藏的店铺</a>
                     </div>
                 </div>
             </li>
@@ -62,10 +62,10 @@
                     <b></b>
                 </div>
             </li>
-            <li class="quick_home"><a href="${ctx}">Mall商城</a></li>
+            <li class="quick_home"><a href="${ctx}/home">Mall商城</a></li>
             <li class="quick_DirectPromo">
                 <div class="sn_menu">
-                    <a href="#">商家支持<b></b></a>
+                    <a href="javascript:void(0)">商家支持<b></b></a>
                     <div class="quick_DirectPromoDiv">
                         <ul>
                             <li>

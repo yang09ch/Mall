@@ -6,4 +6,7 @@
 <select id="getProductorderItemCount" resultType="int">
     SELECT COUNT(productorderitemNumber) FROM productorderitem WHERE productorderitemProductId=#{productorId}
 </select>
+    <select id="getProductorderItemList" resultType="com.kgc.pojo.Productorderitem">
+        select * from productorderitem where productorderitemOrderId=#{productorderitemOrderId}
+    </select>
 </mapper>

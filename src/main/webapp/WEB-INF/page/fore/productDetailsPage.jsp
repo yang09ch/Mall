@@ -32,7 +32,7 @@
             <ul>
                 <c:forEach items="${requestScope.categoryList}" var="category" varStatus="i">
                     <li>
-                        <a href="${ctx}/product?categoryId=${category.categoryId}">${category.categoryName}</a>
+                        <a href="${ctx}/product/product?categoryId=${category.categoryId}">${category.categoryName}</a>
                     </li>
                 </c:forEach>
             </ul>
@@ -69,9 +69,9 @@
             <input type="submit" class="loginButton" value="登 录">
         </form>
         <div class="loginLinks">
-            <a href="#">忘记密码</a>
-            <a href="#">忘记会员名</a>
-            <a href="${ctx}/register">免费注册</a>
+            <a href="javascript:void(0)">忘记密码</a>
+            <a href="javascript:void(0)">忘记会员名</a>
+            <a href="${ctx}/user/register">免费注册</a>
         </div>
         <div class="error_message">
             <p id="error_message_p"></p>
@@ -91,8 +91,8 @@
                     href="https://www.taobao.com/m">手机Mall</a>扫一扫登录</p>
         </div>
         <div class="loginLinks">
-            <a href="JavaScript:void(0)" id="pwdLogin">密码登录</a>
-            <a href="#">免费注册</a>
+            <a href="javascript:void(0)" id="pwdLogin">密码登录</a>
+            <a href="${ctx}/user/register">免费注册</a>
         </div>
     </div>
 </div>
@@ -123,11 +123,11 @@
             <p class="context_info_name">${requestScope.product.productName}</p>
             <span class="context_info_title">${requestScope.product.productTitle}</span>
         </div>
-        <div class="context_info_main">
+        <div class="context_info_main"><%--促销价--%>
             <div class="context_info_main_ad">
                 <img src="${ctx}/res/images/fore/WebsiteImage/context_ad.png">
                 <span>全Mall商城实物商品通用</span>
-                <a href="#">去刮券<img
+                <a href="javascript:void(0)">去刮券<img
                         src="${ctx}/res/images/fore/WebsiteImage/tmallItemContentB.png"></a>
             </div>
             <dl class="context_price_panel">
@@ -148,7 +148,7 @@
                                                                   value="${requestScope.product.productSalePrice/10}"
                                                                   maxFractionDigits="0"/></span></li>
         </ul>
-        <dl class="context_info_member">
+        <dl class="context_info_member"><%--数量--%>
             <dt>数量</dt>
             <dd>
                 <input type="text" value="1" maxlength="8" title="请输入购买量" class="context_buymember">
@@ -168,7 +168,7 @@
                 $(function () {
                     //点击购买按钮时
                     $(".context_buy_form").submit(function () {
-                        if ('${sessionScope.userId}' === "") {
+                        if ('${sessionScope.user.userId}' === "") {
                             $(".loginModel").show();
                             $(".loginDiv").show();
                             return false;
@@ -183,7 +183,7 @@
                     });
                     //点击加入购物车按钮时
                     $(".context_buyCar_form").submit(function () {
-                        if ('${sessionScope.userId}' === "") {
+                        if ('${sessionScope.user.userId}' === "") {
                             $(".loginModel").show();
                             $(".loginDiv").show();
                             return false;
@@ -191,9 +191,9 @@
                         var number = isNaN($.trim($(".context_buymember").val()));
                         if (number) {
                             location.reload();
-                        } else {
+                        } else {//进入ajax
                             $.ajax({
-                                url: "${ctx}/orderItem/create/${requestScope.product.productId}?product_number=" + $.trim($(".context_buymember").val()),
+                                url: "${ctx}/ajax/create/${requestScope.product.productId}?product_number=" + $.trim($(".context_buymember").val()),
                                 type: "POST",
                                 data: {"product_number": number},
                                 dataType: "json",

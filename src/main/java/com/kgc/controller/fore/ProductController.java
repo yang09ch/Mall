@@ -64,7 +64,6 @@ public class ProductController  {
             Review review = product.getReviewList().get(i);
             review.setReviewUser(userService.getUserGetById(review.getReviewUserId()));//user对象
         }
-        model.addAttribute("product",product);
         //商品参数
         List<Property> propertyList = propertyService.propertyList(product.getProductCategoryId());//商品属性集合
         List<PropertyValue> propertyValues = propertyValueService.getProperValueAllByProductId(productId);//商品属性值集合
@@ -79,6 +78,7 @@ public class ProductController  {
                 property.setPropertyValueList(list);
             }
         }
+        model.addAttribute("product",product);
         model.addAttribute("propertyList",propertyList);
         return "fore/productDetailsPage";
     }

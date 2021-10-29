@@ -12,7 +12,7 @@
         $(function () {
             $('#btn-ok').click(function () {
                 $.ajax({
-                    url: "${ctx}/orderItem/" + $("#order_id_hidden").val(),
+                    url: "${ctx}/ajax/orderItem/" + $("#order_id_hidden").val(),
                     type: "DELETE",
                     data: null,
                     dataType: "json",
@@ -52,7 +52,7 @@
                     class="span_tmallBuyCar">购物车</span></a>
         </div>
         <div class="shopSearchHeader">
-            <form action="${ctx}/product" method="get">
+            <form action="${ctx}/product/product" method="get">
                 <div class="shopSearchInput">
                     <input type="text" class="searchInput" name="productName" placeholder="搜索 商品/品牌/店铺"
                            value="${requestScope.searchValue}" maxlength="50">
@@ -62,7 +62,7 @@
             <ul>
                 <c:forEach items="${requestScope.categoryList}" var="category" varStatus="i">
                     <li>
-                        <a href="${ctx}/product?categoryId=${category.categoryId}">${category.categoryName}</a>
+                        <a href="${ctx}/product/product?categoryId=${category.categoryId}">${category.categoryName}</a>
                     </li>
                 </c:forEach>
             </ul>
@@ -79,7 +79,7 @@
             <div id="empty">
                 <h2>您的购物车还是空的，赶紧行动吧！您可以：</h2>
                 <ul>
-                    <li>看看<a href="${ctx}/order">已买到的宝贝</a></li>
+                    <li>看看<a href="${ctx}/order/0/10">已买到的宝贝</a></li>
                 </ul>
             </div>
         </c:when>
@@ -87,7 +87,7 @@
             <div id="J_FilterBar">
                 <ul id="J_CartSwitch">
                     <li>
-                        <a href="${ctx}/cart" class="J_MakePoint">
+                        <a href="${ctx}/cart/cart" class="J_MakePoint">
                             <em>全部商品</em>
                             <span class="number">${requestScope.orderItemTotal}</span>
                         </a>
@@ -134,7 +134,7 @@
                                 href="${ctx}/product/${orderItem.productOrderItemProduct.productId}">${orderItem.productOrderItemProduct.productName}</a></span>
                         </td>
                         <td><span
-                                class="orderItem_product_price">￥${orderItem.productOrderItemPrice/orderItem.productOrderItemNumber}</span>
+                                class="orderItem_product_price">￥${orderItem.productOrderItemPrice}<%--/orderItem.productOrderItemNumber--%></span>
                         </td>
                         <td>
                             <div class="item_amount">
@@ -145,7 +145,7 @@
                             </div>
                         </td>
                         <td>
-                            <span class="orderItem_product_realPrice">￥${orderItem.productOrderItemPrice}</span>
+                            <span class="orderItem_product_realPrice">￥${orderItem.productOrderItemPrice*orderItem.productOrderItemNumber}</span>
                         </td>
                         <td><a href="javascript:void(0)" onclick="removeItem('${orderItem.productOrderItemId}')"
                                class="remove_order">删除</a></td>

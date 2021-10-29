@@ -41,6 +41,10 @@
         }
 
         function getPage(index) {
+            if (index<0){
+                index=0;
+            }
+
             var name = $(".tab_select").children("a").attr("name");
             if (name === undefined) {
                 name = "";

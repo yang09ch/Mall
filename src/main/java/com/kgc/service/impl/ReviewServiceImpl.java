@@ -31,4 +31,9 @@ public class ReviewServiceImpl implements ReviewService {
             return false;
         }
     }
+
+    @Override
+    public int addReview(Review review) {
+        return reviewMapper.addReview(review);
+    }
 }

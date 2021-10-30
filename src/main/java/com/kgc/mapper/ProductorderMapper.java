@@ -14,4 +14,18 @@ public interface ProductorderMapper {
      */
     int getProductorderCount(@Param("productorderStatus") String productorderStatus,@Param("productorderUserId") Integer productorderUserId);
     List<Productorder> getProductorderList(@Param("productorderStatus") String productorderStatus,@Param("productorderUserId") Integer productorderUserId,@Param("pageIndex") Integer pageIndex,@Param("pageSize")Integer pageSize);
+    /**
+     * 根据订单号 进行删除
+     * @param productorderCode
+     * @return
+     */
+    int removeProductor(String productorderCode);
+    /**
+     * 根据订单号 查询
+     */
+    Productorder getByProductorCode(@Param("productorderCode")String productorderCode);
+    /**
+     * 确定收货  将订单状态改为3
+     */
+    int updateProductorStatus(@Param("productorderCode")String productorderCode);
 }

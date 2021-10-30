@@ -11,22 +11,23 @@
         $(function () {
             $('#btn-ok').click(function () {
                 $.ajax({
-                    url: "${ctx}/order/close/" + $("#order_id_hidden").val(),
-                    type: "PUT",
+                    url: "${ctx}/ajax/close/" + $("#order_id_hidden").val(),
+                    type: "post",
                     data: null,
                     dataType: "json",
                     success: function (data) {
+                      /*  alert(data)
                         if (data.success !== true) {
                             alert("订单处理异常，请稍候再试！");
-                        }
-                        location.href = "/mall/order/0/10";
+                        }*/
+                        location.href = "/order/0/10";
                     },
                     beforeSend: function () {
 
                     },
                     error: function () {
                         alert("订单取消出现问题，请稍后再试！");
-                        location.href = "/mall/order/0/10";
+                        location.href = "/order/0/10";
                     }
                 });
             });
@@ -164,7 +165,7 @@
                                         <td class="td_order_content"
                                             rowspan="${fn:length(requestScope.productOrderItemList)}">
                                             <a class="order_btn confirm_btn"
-                                               href="${ctx}/order/confirm/${productOrder.productOrderCode}">确认收货</a>
+                                               href="${ctx}/order/confirm?productOrderCode=${productOrder.productOrderCode}">确认收货</a>
                                         </td>
                                     </c:when>
                                     <c:when test="${productOrder.productOrderStatus==3}">

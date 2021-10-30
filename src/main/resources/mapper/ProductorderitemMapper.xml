@@ -22,4 +22,7 @@
     <delete id="removeProductorItem" parameterType="int">
         delete from productorderitem where productorderitemId=#{productorderitemId}
     </delete>
+    <select id="getByProductorderItem" resultType="com.kgc.pojo.Productorderitem">
+        select * from productorderitem where  productorderitemId=#{orderItemId}
+    </select>
 </mapper>

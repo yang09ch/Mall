@@ -9,4 +9,7 @@
     <select id="getReviewByProductId" resultType="com.kgc.pojo.Review">
         select  * from review where reviewProductId=#{productid}
     </select>
+    <insert id="addReview" parameterType="com.kgc.pojo.Review">
+        insert into review values(null,#{reviewContent},now(),#{reviewUserId},#{reviewProductId},#{reviewOrderItemId})
+    </insert>
 </mapper>

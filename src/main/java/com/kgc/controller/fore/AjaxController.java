@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
-import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -28,6 +27,8 @@ public class AjaxController {
     ProductService productService;
     @Resource
     ProductorderitemService productorderitem;
+    @Resource
+    ProductorderService productorderService;
     @RequestMapping("/toUserLogin")//登录
     public Map<String,Object> toUserLogin(String username, String password, HttpSession session){
         User userLogin = userService.getUserLogin(username, password);
@@ -117,5 +118,25 @@ public class AjaxController {
         Map<String,Object> map=new HashMap<>();
         System.out.println(orderItemMap);
         return map;
+    }
+    @RequestMapping("/close/{code}")
+    public Map<String,Object> adsff(@PathVariable String code){
+        Map<String,Object> map=new HashMap<>();
+        if (productorderService.removeProductor(code)>0){
+            map.put("success",true);
+        }
+        return map;
+    }
+    @RequestMapping("/success")
+    public Map<String,Object> success( String productOrderCode){
+        Map<String,Object> map=new HashMap<>();
+        //修改状态
+        int i = productorderService.updateProductorStatus(productOrderCode);
+        if (i>0){
+            map.put("success",true);
+        }else{
+            map.put("success",false);
+        }
+        return  map;
     }
 }

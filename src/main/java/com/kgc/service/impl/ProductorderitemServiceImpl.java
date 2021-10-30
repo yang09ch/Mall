@@ -42,4 +42,9 @@ public class ProductorderitemServiceImpl implements ProductorderitemService {
     public int removeProductorItem(Integer productorderitemId) {
         return productorderitemMapper.removeProductorItem(productorderitemId);
     }
+
+    @Override
+    public Productorderitem getByProductorderItem(Integer orderItemId) {
+        return productorderitemMapper.getByProductorderItem(orderItemId);
+    }
 }

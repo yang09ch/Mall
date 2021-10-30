@@ -33,4 +33,8 @@ public interface ProductorderitemService {
      * 清空购物车 订单为null
      */
     int removeProductorItem(Integer productorderitemId);
+    /**
+     * 根据订单的id 获取订单对象
+     */
+    Productorderitem getByProductorderItem(Integer orderItemId);
 }

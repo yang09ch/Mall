@@ -38,5 +38,8 @@ public interface ProductorderitemMapper {
      * 查看 用户购物车的商品
      */
     List<Productorderitem> getByProductorItemUserId(Integer userId);
-
+    /**
+     * 根据订单的id 获取订单对象
+     */
+    Productorderitem getByProductorderItem(Integer orderItemId);
 }

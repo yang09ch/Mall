@@ -136,21 +136,21 @@
                         var yn = confirm("点击确认后，您之前付款到支付宝的 ${requestScope.orderTotalPrice}0 元将直接到卖家账户里，请务必收到货再确认！");
                         if (yn) {
                             $.ajax({
-                                url: "/mall/order/success/${requestScope.productOrder.productOrderCode}",
-                                type: "PUT",
-                                data: null,
+                                url: "/ajax/success",
+                                type: "post",
+                                data: {"productOrderCode":${requestScope.productOrder.productOrderCode}},
                                 dataType: "json",
                                 success: function (data) {
                                     if (data.success) {
-                                        location.href = "/mall/order/success/${requestScope.productOrder.productOrderCode}";
+                                        location.href = "/order/success?productOrderCode="+${requestScope.productOrder.productOrderCode};
                                     } else {
                                         alert("订单确认异常，请稍后再试！");
-                                        location.href = "/mall/order/0/10";
+                                        location.href = "/order/0/10";
                                     }
                                 },
                                 error: function (data) {
-                                    alert("订单确认异常，请稍后再试！");
-                                    location.href = "/mall/order/0/10";
+                                    alert("订单真确认异常，请稍后再试！");
+                                    location.href = "/order/0/10";
                                 }
                             });
                         }

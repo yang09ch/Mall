@@ -12,6 +12,15 @@ public interface ReviewService {
      */
     List<Review> getReviewByProductId(Integer productid);
 
+    /**
+     * 获取是否已经评论
+     * @param productId
+     * @return
+     */
     boolean getIsReview(Integer productId);
+    /**
+     * 新增评论
+     */
+    int addReview(Review review);
 
 }

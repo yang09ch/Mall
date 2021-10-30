@@ -36,4 +36,19 @@ public class ProductorderServiceImpl implements ProductorderService {
         }
         return pageUtil;
     }
+
+    @Override
+    public int removeProductor(String productorderCode) {
+        return productorderMapper.removeProductor(productorderCode);
+    }
+
+    @Override
+    public Productorder getByProductorCode(String productorderCode) {
+        return productorderMapper.getByProductorCode(productorderCode);
+    }
+
+    @Override
+    public int updateProductorStatus(String productorderCode) {
+        return productorderMapper.updateProductorStatus(productorderCode);
+    }
 }

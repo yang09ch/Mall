@@ -21,4 +21,13 @@
         order by productorderPayDate desc
         limit #{pageIndex},#{pageSize}
     </select>
+    <delete id="removeProductor" parameterType="string">
+        delete from productorder where productorderCode=#{productorderCode}
+    </delete>
+    <select id="getByProductorCode" resultType="com.kgc.pojo.Productorder">
+          SELECT * FROM productorder WHERE productorderCode=#{productorderCode}
+    </select>
+    <update id="updateProductorStatus" parameterType="string">
+        update productorder set productorderStatus=3,productorderConfirmDate=now() where productorderCode=#{productorderCode}
+    </update>
 </mapper>

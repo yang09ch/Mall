@@ -18,7 +18,7 @@
                 src="${ctx}/res/images/fore/WebsiteImage/tmallLogoD.png"></a>
     </div>
     <div class="shopSearchHeader">
-        <form action="${ctx}/product" method="get">
+        <form action="${ctx}/product/product" method="get">
             <div class="shopSearchInput">
                 <input type="text" class="searchInput" name="productName" placeholder="搜索 商品/品牌/店铺"
                        maxlength="50">
@@ -39,10 +39,10 @@
                             <a class="J_makePoint"
                                href="${ctx}/review/${requestScope.orderItem.productOrderItemId}">
                                 <img src="${ctx}/res/images/item/productSinglePicture/${requestScope.product.singleProductImageList[0].productImageSrc}"
-                                     width="100px" height="100px"/>
-                                <p class="productName"
-                                   title="${requestScope.product.productName}">${requestScope.product.productName}</p>
-                                <span class="vi-btn">立即评价</span>
+                            width="100px" height="100px"/>
+                            <p class="productName"
+                               title="${requestScope.product.productName}">${requestScope.product.productName}</p>
+                            <span class="vi-btn">立即评价</span>
                             </a>
                         </li>
                     </ul>

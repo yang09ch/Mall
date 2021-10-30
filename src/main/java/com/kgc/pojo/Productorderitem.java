@@ -16,7 +16,6 @@ public class Productorderitem implements Serializable {
     private Integer productOrderItemOrderId;//订单编号
     private Integer productOrderItemUserId;//用户id
     private String productOrderItemUserMessage;//备注
-    private List<Productimage> singleProductImageList;//商品的图片的集合
     private Product productOrderItemProduct;//商品对象
-    private Boolean isReview;
+    private Boolean isReview;//
 }

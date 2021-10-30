@@ -32,7 +32,7 @@
                 src="${ctx}/res/images/fore/WebsiteImage/tmallLogoD.png"></a>
     </div>
     <div class="shopSearchHeader">
-        <form action="${ctx}/product" method="get">
+        <form action="${ctx}/product/product" method="get">
             <div class="shopSearchInput">
                 <input type="text" class="searchInput" name="productName" placeholder="搜索 商品/品牌/店铺"
                        maxlength="50">
@@ -80,7 +80,9 @@
         </div>
         <div class="rate-compose">
             <form method="post" action="${ctx}/review" id="review_form">
-                <input type="hidden" class="orderItem_id" value="${orderItem.productOrderItemId}" name="orderItem_id">
+                <input type="hidden" class="orderItem_id" value="${orderItem.productOrderItemId}" name="reviewOrderItemId">
+                <input type="hidden" value="${orderItem.productOrderItemProduct.productId}" name="reviewProductId">
+                <input type="hidden" value="${sessionScope.user.userId}" name="reviewUserId">
                 <div class="compose-main">
                     <div class="compose-header">
                         <span>其他买家，需要你的建议哦！</span>

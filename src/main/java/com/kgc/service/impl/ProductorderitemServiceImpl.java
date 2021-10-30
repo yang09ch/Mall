@@ -39,7 +39,7 @@ public class ProductorderitemServiceImpl implements ProductorderitemService {
     }
 
     @Override
-    public int removeProductorItem(Integer productId, Integer userId) {
-        return productorderitemMapper.removeProductorItem(productId,userId);
+    public int removeProductorItem(Integer productorderitemId) {
+        return productorderitemMapper.removeProductorItem(productorderitemId);
     }
 }

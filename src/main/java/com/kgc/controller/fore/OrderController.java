@@ -29,7 +29,7 @@ public class OrderController {
     ProductService productService;
     @Resource
     ReviewService reviewService;
-    @RequestMapping("/order/{pageIndex}/{pageSize}")
+    @RequestMapping("/order/{pageIndex}/{pageSize}")//详情展示
     public String goToOrderList(@PathVariable("pageIndex") Integer pageIndex, @PathVariable("pageSize") Integer pageSize, String status, HttpSession session, Model model){
         User user = (User)session.getAttribute("user");
         if (user==null){

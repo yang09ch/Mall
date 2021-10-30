@@ -26,11 +26,11 @@ public class CartController {
     @Resource
     ProductimageService productimageService;
 
-    @RequestMapping("/cart")
+    @RequestMapping("/cart")//购物车展示
     public String goCart(Model model, HttpSession session){
         User user = (User)session.getAttribute("user");
         if (user==null){
-            return "redirect:user/UserLogin";
+            return "redirect:/user/UserLogin";
         }
         int getCount=0;
         //获取所有购物车商品

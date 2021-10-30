@@ -13,21 +13,21 @@
             $('#btn-ok').click(function () {
                 $.ajax({
                     url: "${ctx}/ajax/orderItem/" + $("#order_id_hidden").val(),
-                    type: "DELETE",
+                    type: "post",
                     data: null,
                     dataType: "json",
                     success: function (data) {
                         if (data.success !== true) {
                             alert("购物车商品删除异常，请稍候再试！");
                         }
-                        location.href = "/mall/cart";
+                        location.href = "/cart/cart";
                     },
                     beforeSend: function () {
 
                     },
                     error: function () {
                         alert("购物车产品删除异常，请稍后再试！");
-                        location.href = "/mall/cart";
+                        location.href = "/cart/cart";
                     }
                 });
             });

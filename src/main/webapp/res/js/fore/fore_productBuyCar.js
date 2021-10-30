@@ -139,10 +139,10 @@ function create(obj) {
     var tr = $("input.cbx_select:checked").parents("tr.orderItem_info");
     tr.each(function () {
         var key = $(this).find(".input_orderItem").attr("name");
-        orderItemMap[key] = $(this).find(".item_amount").children("input").val();
+        orderItemMap[key] = $(this).find(".item_amount").children("input").val();//获取每个商品的数量
     });
     $.ajax({
-        url: contextPath + "/orderItem",
+        url: contextPath + "/ajax/orderItem",
         type: "PUT",
         data: {
             "orderItemMap": JSON.stringify(orderItemMap)
@@ -154,14 +154,14 @@ function create(obj) {
                 return true;
             } else {
                 alert("购物车商品结算异常，请稍候再试！");
-                location.href = "/cart";
+                location.href = "/cart/cart";
             }
         },
         beforeSend: function () {
         },
         error: function () {
             alert("购物车商品结算异常，请稍候再试！");
-            location.href = contextPath + "/cart";
+            location.href = contextPath + "/cart/cart";
         }
     });
 }

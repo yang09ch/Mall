@@ -99,4 +99,23 @@ public class AjaxController {
         }
         return map;
     }
+    @RequestMapping("/orderItem/{productOrderItemId}")//清除购物车
+    public Map<String,Object> orderItem(@PathVariable("productOrderItemId") Integer productOrderItemId,HttpSession session){
+            User user = (User) session.getAttribute("user");
+            Map<String,Object> map=new HashMap<>();
+        List<Productorderitem> productorderitemList = productorderitem.getByProductorItemUserId(user.getUserId());
+        for (Productorderitem productord: productorderitemList) {
+            if (productOrderItemId.equals(productord.getProductOrderItemId())){
+                productorderitem.removeProductorItem(productOrderItemId);
+                map.put("success",true);
+            }
+        }
+        return  map;
+    }
+    @RequestMapping("/orderItem")
+    public Map<String,Object> orderItem(Map<String,Productorderitem> orderItemMap){
+        Map<String,Object> map=new HashMap<>();
+        System.out.println(orderItemMap);
+        return map;
+    }
 }

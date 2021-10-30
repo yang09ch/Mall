@@ -32,5 +32,5 @@ public interface ProductorderitemService {
     /**
      * 清空购物车 订单为null
      */
-    int removeProductorItem( Integer productId, Integer userId);
+    int removeProductorItem(Integer productorderitemId);
 }

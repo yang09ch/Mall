@@ -33,7 +33,7 @@ public interface ProductorderitemMapper {
     /**
      * 清空购物车 订单为null
      */
-    int removeProductorItem(@Param("productId") Integer productId,@Param("userId") Integer userId);
+    int removeProductorItem(Integer productorderitemId);
     /**
      * 查看 用户购物车的商品
      */

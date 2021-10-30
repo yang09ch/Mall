@@ -20,6 +20,6 @@
         where  productorderitemOrderId IS NULL AND productorderitemProductId=#{productId} and  productorderitemUserId=#{userId}
     </update>
     <delete id="removeProductorItem" parameterType="int">
-        delete from productorderitem where productorderitemOrderId IS NULL productorderitemProductId=#{productId} and  productorderitemUserId=#{userId}
+        delete from productorderitem where productorderitemId=#{productorderitemId}
     </delete>
 </mapper>

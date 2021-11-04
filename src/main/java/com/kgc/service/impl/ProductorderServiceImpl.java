@@ -18,7 +18,6 @@ public class ProductorderServiceImpl implements ProductorderService {
         PageUtil<Productorder> pageUtil=new PageUtil<>();
         pageUtil.setPageIndex(pageIndex);
         pageUtil.setPageSize(pageSize);
-
         return pageUtil;
     }
 

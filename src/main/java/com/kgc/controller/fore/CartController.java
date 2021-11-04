@@ -9,11 +9,9 @@ import com.kgc.service.ProductorderitemService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-
 import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
 import java.util.List;
-
 @Controller
 @RequestMapping("cart")
 public class CartController {
@@ -25,7 +23,6 @@ public class CartController {
     ProductService productService;
     @Resource
     ProductimageService productimageService;
-
     @RequestMapping("/cart")//购物车展示
     public String goCart(Model model, HttpSession session){
         User user = (User)session.getAttribute("user");

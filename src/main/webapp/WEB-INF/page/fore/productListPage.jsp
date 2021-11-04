@@ -3,7 +3,7 @@
 <c:set var="ctx" value="${pageContext.request.contextPath}" />
 <script type="text/javascript">
     var contextPath = "${ctx}";
-</script>
+</script>  <%--搜索 查询--%>
 <script src="${ctx}/res/js/fore/fore_productList.js"></script>
 <link href="${ctx}/res/css/fore/fore_productList.css" rel="stylesheet">
 <body>

@@ -1,5 +1,4 @@
 package com.kgc.controller.fore;
-
 import com.kgc.pojo.Product;
 import com.kgc.pojo.Property;
 import com.kgc.pojo.PropertyValue;
@@ -10,12 +9,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-
 import javax.annotation.Resource;
 import java.util.ArrayList;
 import java.util.List;
-
 @Controller
 @RequestMapping("product")
 public class ProductController  {
@@ -82,5 +78,4 @@ public class ProductController  {
         model.addAttribute("propertyList",propertyList);
         return "fore/productDetailsPage";
     }
-
 }

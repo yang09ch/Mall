@@ -1,18 +1,16 @@
 package com.kgc.controller.fore;
-
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import com.kgc.pojo.*;
 import com.kgc.service.*;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
 //ajax 控制类  所有异步操作在本控制类进行
 @RestController
 @RequestMapping("ajax")
@@ -52,7 +50,6 @@ public class AjaxController {
             map.put("success",true);
             return map;
     }/*省 市 区绑定*/
-
     @RequestMapping("/doRegister")
     public String doRegister(User user){//注册
         return "["+userService.addUser(user)+"]";
@@ -114,9 +111,20 @@ public class AjaxController {
         return  map;
     }
     @RequestMapping("/orderItem")
-    public Map<String,Object> orderItem(Map<String,Productorderitem> orderItemMap){
+    public Map<String,Object> orderItem(String orderItemMap){
+        Map jsonObject = JSON.parseObject(orderItemMap);
+        List<Productorderitem> productorderitemList = new ArrayList<>();
+        for (Object obj : jsonObject.keySet()) {
+            Productorderitem byProductorderItem = productorderitem.getByProductorderItem(Integer.valueOf(obj.toString()));
+            productorderitemList.add(byProductorderItem);
+        }
         Map<String,Object> map=new HashMap<>();
-        System.out.println(orderItemMap);
+        map.put("orderItemIDArray",productorderitemList);
+       if (JSON.toJSONString(productorderitemList)!=null){
+           map.put("success",true);
+       }else{
+           map.put("success",false);
+       }
         return map;
     }
     @RequestMapping("/close/{code}")

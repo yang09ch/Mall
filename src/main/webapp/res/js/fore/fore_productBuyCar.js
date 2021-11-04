@@ -143,14 +143,14 @@ function create(obj) {
     });
     $.ajax({
         url: contextPath + "/ajax/orderItem",
-        type: "PUT",
+        type: "get",
         data: {
             "orderItemMap": JSON.stringify(orderItemMap)
         },
         traditional: true,
         success: function (data) {
             if (data.success) {
-                location.href = contextPath + "/order/create/byCart?order_item_list=" + data.orderItemIDArray;
+                location.href = contextPath + "/order/create/byCart?order_item_list=" +encodeURI(JSON.stringify(data.orderItemIDArray));
                 return true;
             } else {
                 alert("购物车商品结算异常，请稍候再试！");

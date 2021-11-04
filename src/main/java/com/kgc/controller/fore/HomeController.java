@@ -1,5 +1,4 @@
 package com.kgc.controller.fore;
-
 import com.kgc.pojo.Category;
 import com.kgc.pojo.Product;
 import com.kgc.service.CategoryService;
@@ -8,11 +7,8 @@ import com.kgc.service.ProductimageService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-
 import javax.annotation.Resource;
 import java.util.List;
-import java.util.Map;
-
 @Controller
 public class HomeController {
     @Resource
@@ -41,6 +37,4 @@ public class HomeController {
         model.addAttribute("specialProductList",productService.getLunPo());//轮播
         return "fore/homePage";
     }
-
-
 }

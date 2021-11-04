@@ -19,19 +19,16 @@ public class UserController {
     public String index(Model model) {
         return "fore/homePage";
     }
-
     @RequestMapping("/UserLogin")
     public String UserLogin() {
         return "fore/loginPage";
     }
-
     @RequestMapping("/logout")
     public String logout(Model model, HttpSession session) {
         session.removeAttribute("user");
         session.invalidate();
         return "redirect:/user/UserLogin";
     }
-
     @RequestMapping("/register")
     public String register(Model model) {
         model.addAttribute("addressList", addressService.addressList());
@@ -39,7 +36,6 @@ public class UserController {
         model.addAttribute("districtList", addressService.districtList("110100"));
         return "fore/register";
     }
-
     @RequestMapping("/userDetails")
     public String userDetailsc(Model model, HttpSession session) {//绑定数据
         User user = (User) session.getAttribute("user");
@@ -57,7 +53,6 @@ public class UserController {
         }
         return "redirect:/user/UserLogin";
     }
-
     @RequestMapping("/update")//修改用户信息
     public String update(User user,HttpSession session){
         User u1 = (User) session.getAttribute("user");

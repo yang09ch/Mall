@@ -25,4 +25,25 @@
     <select id="getByProductorderItem" resultType="com.kgc.pojo.Productorderitem">
         select * from productorderitem where  productorderitemId=#{orderItemId}
     </select>
+    <update id="getUpdateProductorderItem" parameterType="com.kgc.pojo.Productorderitem">
+        update productorderitem
+        <set>
+            <if test="productOrderItemNumber!=null and productOrderItemNumber!=''">
+                productorderitemNumber=#{productOrderItemNumber},
+            </if>
+            <if test="productOrderItemPrice!=null and productOrderItemPrice!=''">
+                productorderitemPrice=#{productOrderItemPrice},
+            </if>
+            <if test="productOrderItemProductId!=null and productOrderItemProductId!=''">
+                productorderitemProductId=#{productOrderItemProductId},
+            </if>
+            <if test="productOrderItemOrderId!=null and productOrderItemOrderId!=''">
+                productorderitemOrderId=#{productOrderItemOrderId},
+            </if>
+            <if test="productOrderItemUserMessage!=null and productOrderItemUserMessage!=''">
+                productorderitemUserMessage=#{productOrderItemUserMessage},
+            </if>
+        </set>
+        where productorderitemId=#{productOrderItemId}
+    </update>
 </mapper>

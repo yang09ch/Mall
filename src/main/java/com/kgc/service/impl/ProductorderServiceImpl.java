@@ -50,4 +50,14 @@ public class ProductorderServiceImpl implements ProductorderService {
     public int updateProductorStatus(String productorderCode) {
         return productorderMapper.updateProductorStatus(productorderCode);
     }
+
+    @Override
+    public int addProductor(Productorder productorder) {
+        return productorderMapper.addProductor(productorder);
+    }
+
+    @Override
+    public int updateProductor(Productorder productorder) {
+        return productorderMapper.updateProductor(productorder);
+    }
 }

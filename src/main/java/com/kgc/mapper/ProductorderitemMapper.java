@@ -1,5 +1,6 @@
 package com.kgc.mapper;
 
+import com.kgc.pojo.Productorder;
 import com.kgc.pojo.Productorderitem;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
@@ -42,4 +43,8 @@ public interface ProductorderitemMapper {
      * 根据订单的id 获取订单对象
      */
     Productorderitem getByProductorderItem(Integer orderItemId);
+    /**
+     * 修改 订单
+     */
+    int getUpdateProductorderItem(Productorderitem productorderitem);
 }

@@ -7,10 +7,9 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.text.SimpleDateFormat;
+import java.util.*;
+
 //ajax 控制类  所有异步操作在本控制类进行
 @RestController
 @RequestMapping("ajax")
@@ -127,7 +126,7 @@ public class AjaxController {
        }
         return map;
     }
-    @RequestMapping("/close/{code}")
+    @RequestMapping("/close/{code}")//取消订单
     public Map<String,Object> adsff(@PathVariable String code){
         Map<String,Object> map=new HashMap<>();
         if (productorderService.removeProductor(code)>0){
@@ -135,7 +134,7 @@ public class AjaxController {
         }
         return map;
     }
-    @RequestMapping("/success")
+    @RequestMapping("/success")//确认收货 修改状态
     public Map<String,Object> success( String productOrderCode){
         Map<String,Object> map=new HashMap<>();
         //修改状态
@@ -146,5 +145,46 @@ public class AjaxController {
             map.put("success",false);
         }
         return  map;
+    }
+    @RequestMapping("/order/list")//新增订单
+    public Map<String,Object> list(String addressId,String cityAddressId,String districtAddressId,String productOrderDetailAddress,String productOrderPost,
+                                   String productOrderReceiver,String productOrderMobile,String orderItemJSON,HttpSession session){
+        Map<String,Object> map=new HashMap<>();
+        User user = (User) session.getAttribute("user");
+        String format=new SimpleDateFormat("yyyyMMddHHmmss").format(new Date())+"0"+user.getUserId();//生成订单号
+        Productorder productorder=new Productorder();
+        productorder.setProductOrderUserId(user.getUserId());//用户id
+        productorder.setProductOrderCode(format);//订单号
+        productorder.setProductOrderStatus(0);//状态
+        productorder.setProductOrderMobile(productOrderMobile);//手机号
+        productorder.setProductOrderDetailAddress(productOrderDetailAddress);//详细地址
+        productorder.setProductOrderReceiver(productOrderReceiver);//收货人姓名
+        productorder.setProductOrderPost(productOrderPost);//邮编
+        productorder.setProductOrderAddress(districtAddressId);//地址
+        productorder.setProductOrderPayDate(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
+        if (productorderService.addProductor(productorder)>0){//当为 true 说明订单生成成功
+            Map object = JSON.parseObject(orderItemJSON);
+            for (Object obj : object.keySet()) {//获取 订单明细表的id map 放入备注和订单
+                Productorderitem productorderItem = productorderitem.getByProductorderItem(Integer.valueOf(obj.toString()));
+                productorderItem.setProductOrderItemUserMessage(object.get(obj).toString());//备注
+                //根据 生成的订单号获取订单的id
+                productorderItem.setProductOrderItemOrderId(productorderService.getByProductorCode(format).getProductOrderId());
+                productorderitem.getUpdateProductorderItem(productorderItem);
+            }
+            map.put("url","pay/"+format);
+            map.put("success",true);
+        }
+        return map;
+    }
+    @RequestMapping("/pay/{code}")
+    public Map<String,Object> getPay(@PathVariable("code") String code){
+        Map<String,Object> map=new HashMap<>();
+        Productorder byProductorCode = productorderService.getByProductorCode(code);
+        byProductorCode.setProductOrderStatus(1);
+        if (productorderService.updateProductor(byProductorCode)>0){
+            map.put("success",true);
+            map.put("url","/pay/success/"+code);
+        }
+        return map;
     }
 }

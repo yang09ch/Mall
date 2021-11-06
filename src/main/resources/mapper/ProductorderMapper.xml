@@ -30,4 +30,25 @@
     <update id="updateProductorStatus" parameterType="string">
         update productorder set productorderStatus=3,productorderConfirmDate=now() where productorderCode=#{productorderCode}
     </update>
+    <insert id="addProductor" parameterType="com.kgc.pojo.Productorder">
+        insert into productorder values (null,#{productOrderCode},#{productOrderAddress},#{productOrderDetailAddress},#{productOrderPost},#{productOrderReceiver},#{productOrderMobile},#{productOrderPayDate},#{productOrderDeliveryDate},#{productOrderConfirmDate},#{productOrderStatus},#{productOrderUserId})
+    </insert>
+    <update id="updateProductor" parameterType="com.kgc.pojo.Productorder">
+        update productorder
+        <set>
+            <if test="productOrderMobile!=null and productOrderMobile!=''">
+                productorderMobile=#{productOrderMobile},
+            </if>
+            <if test="productOrderDeliveryDate!=null and productOrderDeliveryDate!=''">
+                productorderDeliveryDate=#{productOrderDeliveryDate},
+            </if>
+            <if test="productOrderConfirmDate!=null and productOrderConfirmDate!=''">
+                productorderConfirmDate=#{productOrderConfirmDate},
+            </if>
+            <if test="productOrderStatus!=null and productOrderStatus!=''">
+                productorderStatus=#{productOrderStatus},
+            </if>
+        </set>
+        where productorderId=#{productOrderId}
+    </update>
 </mapper>

@@ -74,14 +74,15 @@ public class OrderController {
         model.addAttribute("cityList", addressService.cityList(substring));
         model.addAttribute("order_receiver",user.getUserNickName());
         model.addAttribute("districtList", addressService.districtList(addressService.cityList(substring).get(0).getAddressAreaId()));
+
         List<Productorderitem> productorderitemList =JSONArray.parseArray(order_item_list,Productorderitem.class);
         BigDecimal orderTotalPrice=new BigDecimal(0);
-
         for (Productorderitem productorderitem : productorderitemList) {
             productorderitem.setProductOrderItemProduct(productService.getByProductId(productorderitem.getProductOrderItemProductId()));
             Product product = productorderitem.getProductOrderItemProduct();
             product.setSingleProductImageList(productimageService.getProductimgeList(product.getProductId()));
             product.setProductCategory(categoryService.getCategoryById(product.getProductCategoryId()));
+            //计算 商品价格
             int number = productorderitem.getProductOrderItemNumber();
             BigDecimal nb=new BigDecimal(number);
             orderTotalPrice=orderTotalPrice.add(productorderitem.getProductOrderItemPrice().multiply(nb));
@@ -91,8 +92,19 @@ public class OrderController {
         return "fore/productBuyPage";
     }
     @RequestMapping("/order/pay/{productOrderCode}")//立即付款
-    public String toPay(@PathVariable("productOrderCode") String productOrderCode){
-        return "";
+    public String toPay(@PathVariable("productOrderCode") String productOrderCode,Model model){
+        Productorder byProductorCode = productorderService.getByProductorCode(productOrderCode);
+        byProductorCode.setProductOrderItemList(productorderitemService.getProductorderItemList(byProductorCode.getProductOrderId()));
+        BigDecimal orderTotalPrice=new BigDecimal(0);
+        List<Productorderitem> orderItemList = byProductorCode.getProductOrderItemList();
+        for (Productorderitem productorderitem : orderItemList) {
+            int itemNumber = productorderitem.getProductOrderItemNumber();
+            BigDecimal itemPrice = productorderitem.getProductOrderItemPrice();
+            orderTotalPrice=orderTotalPrice.add(itemPrice.multiply(new BigDecimal(itemNumber)));
+        }
+        model.addAttribute("orderTotalPrice",orderTotalPrice);
+        model.addAttribute("productOrder",byProductorCode);
+        return "fore/productPayPage";
     }
     @RequestMapping("/order/delivery/{productOrderCode}")//提醒发货
     public String delivery(@PathVariable("productOrderCode") String productOrderCode){
@@ -130,5 +142,21 @@ public class OrderController {
             }
         }
         return "fore/orderSuccessPage";
+    }
+    @RequestMapping("/order/pay/success/{code}")
+    public String PaySuccess(@PathVariable String code,Model model){
+        Productorder productorder = productorderService.getByProductorCode(code);
+        productorder.setProductOrderItemList(productorderitemService.getProductorderItemList(productorder.getProductOrderId()));
+        List<Productorderitem> itemList = productorder.getProductOrderItemList();
+        BigDecimal orderTotalPrice=new BigDecimal(0);
+        for (Productorderitem productorderitem : itemList) {
+            int itemNumber = productorderitem.getProductOrderItemNumber();
+            BigDecimal itemPrice = productorderitem.getProductOrderItemPrice();
+            orderTotalPrice=orderTotalPrice.add(itemPrice.multiply(new BigDecimal(itemNumber)));
+        }
+        model.addAttribute("orderTotalPrice",orderTotalPrice);
+        model.addAttribute("productOrder",productorder);
+        model.addAttribute("categoryList",categoryService.getCategoryAll());
+        return "fore/productPaySuccessPage";
     }
 }

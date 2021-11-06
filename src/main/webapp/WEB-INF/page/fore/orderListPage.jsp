@@ -128,7 +128,7 @@
                                     class="orderItem_product_number">${productOrderItem.productOrderItemNumber}</span>
                             </td>
                             <td class="td_order_content"><span
-                                    class="orderItem_product_realPrice">￥${productOrderItem.productOrderItemPrice}</span>
+                                    class="orderItem_product_realPrice">￥${productOrderItem.productOrderItemPrice*productOrderItem.productOrderItemNumber}</span>
                             </td>
                             <c:if test="${i.count == 1}">
                                 <c:choose>

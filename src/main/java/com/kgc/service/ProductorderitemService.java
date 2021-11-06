@@ -37,4 +37,8 @@ public interface ProductorderitemService {
      * 根据订单的id 获取订单对象
      */
     Productorderitem getByProductorderItem(Integer orderItemId);
+    /**
+     * 修改 订单
+     */
+    int getUpdateProductorderItem(Productorderitem productorderitem);
 }

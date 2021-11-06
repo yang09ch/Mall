@@ -28,4 +28,14 @@ public interface ProductorderMapper {
      * 确定收货  将订单状态改为3
      */
     int updateProductorStatus(@Param("productorderCode")String productorderCode);
+    /**
+     * 订单新增
+     * @param productorder
+     * @return
+     */
+    int addProductor(Productorder productorder);
+    /**
+     *  修改订单信息
+     */
+    int updateProductor(Productorder productorder);
 }

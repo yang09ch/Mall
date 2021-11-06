@@ -47,4 +47,9 @@ public class ProductorderitemServiceImpl implements ProductorderitemService {
     public Productorderitem getByProductorderItem(Integer orderItemId) {
         return productorderitemMapper.getByProductorderItem(orderItemId);
     }
+
+    @Override
+    public int getUpdateProductorderItem(Productorderitem productorderitem) {
+        return productorderitemMapper.getUpdateProductorderItem(productorderitem);
+    }
 }

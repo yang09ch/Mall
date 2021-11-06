@@ -159,10 +159,10 @@
             var addressId = $("#select_order_address_province").val();
             var cityAddressId = $("#select_order_address_city").val();
             var districtAddressId = $("#select_order_address_district").val();
-            var productOrderDetailAddress = $.trim($("#textarea_details_address").val());
-            var productOrderPost = $.trim($("#input_order_post").val());
-            var productOrderReceiver = $.trim($("#input_order_receiver").val());
-            var productOrderMobile = $.trim($("#input_order_phone").val());
+            var productOrderDetailAddress = $.trim($("#textarea_details_address").val());/*详细地址*/
+            var productOrderPost = $.trim($("#input_order_post").val());/*邮编*/
+            var productOrderReceiver = $.trim($("#input_order_receiver").val());//
+            var productOrderMobile = $.trim($("#input_order_phone").val());/*电话号*/
             var userMessage = $.trim($("#input_userMessage_1").val());
             var orderItem_product_id = parseInt('${requestScope.orderItemList[0].productOrderItemProduct.productId}');
             var orderItem_number = parseInt('${requestScope.orderItemList[0].productOrderItemNumber}');
@@ -224,7 +224,7 @@ debugger;
             });
         }
 
-        function payList() {
+        function payList() {//结算
             var addressId = $("#select_order_address_province").val();
             var cityAddressId = $("#select_order_address_city").val();
             var districtAddressId = $("#select_order_address_district").val();
@@ -267,7 +267,7 @@ debugger;
                 orderItemMap[orderItem_id] = $(this).find(".input_userMessage").val();
             });
             $.ajax({
-                url: "/mall/order/list",
+                url: "/ajax/order/list",
                 type: "POST",
                 data: {
                     "addressId": addressId,
@@ -282,7 +282,7 @@ debugger;
                 traditional: true,
                 success: function (data) {
                     if (data.success) {
-                        location.href = "/mall" + data.url;
+                        location.href = "/order/" + data.url;
                         return true;
                     } else {
                         alert("订单创建失败，请稍后再试！");

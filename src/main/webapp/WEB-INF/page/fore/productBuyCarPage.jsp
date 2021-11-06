@@ -131,7 +131,7 @@
                         <td><img class="orderItem_product_image"
                                  src="${ctx}/res/images/item/productSinglePicture/${orderItem.productOrderItemProduct.singleProductImageList[0].productImageSrc}"
                                  style="width: 80px;height: 80px;"/><span class="orderItem_product_name"><a
-                                href="${ctx}/product/${orderItem.productOrderItemProduct.productId}">${orderItem.productOrderItemProduct.productName}</a></span>
+                                href="${ctx}/product/product/${orderItem.productOrderItemProduct.productId}">${orderItem.productOrderItemProduct.productName}</a></span>
                         </td>
                         <td><span
                                 class="orderItem_product_price">￥${orderItem.productOrderItemPrice}<%--/orderItem.productOrderItemNumber--%></span>

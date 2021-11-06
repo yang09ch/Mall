@@ -46,7 +46,7 @@
         <script>
             function pay() {
                 $.ajax({
-                    url: "${ctx}/order/pay/${requestScope.productOrder.productOrderCode}",
+                    url: "${ctx}/ajax/pay/${requestScope.productOrder.productOrderCode}",
                     type: "PUT",
                     data: null,
                     dataType: "json",
@@ -54,14 +54,14 @@
                         if (data.success !== true) {
                             alert("订单处理异常，请稍候再试！");
                         }
-                        location.href = "/mall" + data.url;
+                        location.href = "/order" + data.url;
                     },
                     beforeSend: function () {
 
                     },
                     error: function () {
                         alert("订单支付出现问题，请重新支付！");
-                        location.href = "/mall/order/0/10";
+                        location.href = "/order/0/10";
                     }
                 });
             }

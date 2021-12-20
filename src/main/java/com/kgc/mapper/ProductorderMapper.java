@@ -4,6 +4,7 @@ import com.kgc.pojo.Productorder;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
+import java.util.Date;
 import java.util.List;
 
 //商品订单
@@ -38,4 +39,8 @@ public interface ProductorderMapper {
      *  修改订单信息
      */
     int updateProductor(Productorder productorder);
+    /**
+     *  根据开始时间和结束时间获取购买数和状态
+     */
+    List<Productorder> getProductorderDate(@Param("staTime") Date staTime, @Param("endTime") Date endTime);
 }

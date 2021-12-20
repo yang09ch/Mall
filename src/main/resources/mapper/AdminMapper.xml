@@ -5,9 +5,9 @@
 <mapper namespace="com.kgc.mapper.AdminMapper">
 <!--    /*管理员登录*/-->
     <select id="getAdminLogin" resultType="com.kgc.pojo.Admin">
-        SELECT * FROM admin WHERE adminName=#{adminName} AND adminPassword=#{adminPassword}
+        SELECT * FROM mall.admin WHERE adminName=#{adminName} AND adminPassword=#{adminPassword}
     </select>
     <insert id="addAdmin" parameterType="com.kgc.pojo.Admin">
-        INSERT INTO admin VALUES(NULL,#{adminName},#{adminNickname},#{adminPassword},#{adminProfilePictureSrc})
+        INSERT INTO mall.admin VALUES(NULL,#{adminName},#{adminNickname},#{adminPassword},#{adminProfilePictureSrc})
     </insert>
 </mapper>

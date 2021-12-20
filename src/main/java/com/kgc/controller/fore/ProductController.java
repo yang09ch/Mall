@@ -76,6 +76,7 @@ public class ProductController  {
         }
         model.addAttribute("product",product);
         model.addAttribute("propertyList",propertyList);
+        model.addAttribute("categoryList",categoryService.getCategoryAll());
         return "fore/productDetailsPage";
     }
 }

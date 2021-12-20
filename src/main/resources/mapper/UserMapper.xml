@@ -5,15 +5,15 @@
 <mapper namespace="com.kgc.mapper.UserMapper">
 <!--    /*注册*/-->
 <insert id="addUser" parameterType="com.kgc.pojo.User">
-INSERT INTO `user`(userName,userPassword,userNickName,userGender,userBirthday,userHomePlace,userAddress)
+INSERT INTO mall.`user`(userName,userPassword,userNickName,userGender,userBirthday,userHomePlace,userAddress)
  VALUES(#{userName},#{userPassword},#{userNickName},#{userGender},#{userBirthday},#{userAddress},#{userAddress})
 </insert>
  <!--   /*登录*/-->
     <select id="getUserLogin" resultType="com.kgc.pojo.User">
-        select * from `user` where userName=#{userName} and userPassword=#{userPassword}
+        select * from mall.`user` where userName=#{userName} and userPassword=#{userPassword}
     </select>
     <update id="getUserUpdate" parameterType="com.kgc.pojo.User">
-        update `user`
+        update mall.`user`
         <set>
             <if test="userNickName!=null and userNickName!=''">
                 userNickName=#{userNickName},
@@ -37,6 +37,6 @@ INSERT INTO `user`(userName,userPassword,userNickName,userGender,userBirthday,us
         where userId=#{userId}
     </update>
     <select id="getUserGetById" resultType="com.kgc.pojo.User">
-        select * from `user` where userId=#{userId}
+        select * from mall.`user` where userId=#{userId}
     </select>
 </mapper>

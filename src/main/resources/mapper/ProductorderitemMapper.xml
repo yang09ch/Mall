@@ -4,29 +4,29 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.kgc.mapper.ProductorderitemMapper">
 <select id="getProductorderItemCount" resultType="int">
-    SELECT COUNT(productorderitemNumber) FROM productorderitem WHERE productorderitemProductId=#{productorId}
+    SELECT COUNT(productorderitemNumber) FROM mall.productorderitem WHERE productorderitemProductId=#{productorId}
 </select>
     <select id="getProductorderItemList" resultType="com.kgc.pojo.Productorderitem">
-        select * from productorderitem where productorderitemOrderId=#{productorderitemOrderId}
+        select * from mall.productorderitem where productorderitemOrderId=#{productorderitemOrderId}
     </select>
     <select id="getByProductorItemUserId" resultType="com.kgc.pojo.Productorderitem">
-       SELECT * FROM productorderitem WHERE productorderitemOrderId IS NULL AND productorderitemUserId=#{userId}
+       SELECT * FROM mall.productorderitem WHERE productorderitemOrderId IS NULL AND productorderitemUserId=#{userId}
     </select>
     <insert id="getProductorderitemInsert" parameterType="com.kgc.pojo.Productorderitem">
-        INSERT INTO productorderitem VALUES(NULL,#{productOrderItemNumber},#{productOrderItemPrice},#{productOrderItemProductId},NULL,#{productOrderItemUserId},null)
+        INSERT INTO mall.productorderitem VALUES(NULL,#{productOrderItemNumber},#{productOrderItemPrice},#{productOrderItemProductId},NULL,#{productOrderItemUserId},null)
     </insert>
     <update id="updateProductorderItemUpdate" parameterType="int">
-        update productorderitem set productorderitemNumber=#{number}+productorderitemNumber
+        update mall.productorderitem set productorderitemNumber=#{number}+productorderitemNumber
         where  productorderitemOrderId IS NULL AND productorderitemProductId=#{productId} and  productorderitemUserId=#{userId}
     </update>
     <delete id="removeProductorItem" parameterType="int">
-        delete from productorderitem where productorderitemId=#{productorderitemId}
+        delete from mall.productorderitem where productorderitemId=#{productorderitemId}
     </delete>
     <select id="getByProductorderItem" resultType="com.kgc.pojo.Productorderitem">
-        select * from productorderitem where  productorderitemId=#{orderItemId}
+        select * from mall.productorderitem where  productorderitemId=#{orderItemId}
     </select>
     <update id="getUpdateProductorderItem" parameterType="com.kgc.pojo.Productorderitem">
-        update productorderitem
+        update mall.productorderitem
         <set>
             <if test="productOrderItemNumber!=null and productOrderItemNumber!=''">
                 productorderitemNumber=#{productOrderItemNumber},

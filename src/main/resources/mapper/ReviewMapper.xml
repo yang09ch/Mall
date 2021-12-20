@@ -4,12 +4,12 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.kgc.mapper.ReviewMapper">
 <select id="getReviewCount" resultType="int">
-    SELECT COUNT(reviewId) FROM review WHERE reviewProductId=#{productId}
+    SELECT COUNT(reviewId) FROM mall.review WHERE reviewProductId=#{productId}
 </select>
     <select id="getReviewByProductId" resultType="com.kgc.pojo.Review">
-        select  * from review where reviewProductId=#{productid}
+        select  * from mall.review where reviewProductId=#{productid}
     </select>
     <insert id="addReview" parameterType="com.kgc.pojo.Review">
-        insert into review values(null,#{reviewContent},now(),#{reviewUserId},#{reviewProductId},#{reviewOrderItemId})
+        insert into mall.review values(null,#{reviewContent},now(),#{reviewUserId},#{reviewProductId},#{reviewOrderItemId})
     </insert>
 </mapper>

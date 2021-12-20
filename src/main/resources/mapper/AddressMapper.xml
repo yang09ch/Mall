@@ -5,20 +5,20 @@
 <mapper namespace="com.kgc.mapper.AddressMapper">
    <!-- /*查询省份*/-->
     <select id="addressList" resultType="com.kgc.pojo.Address">
-        SELECT * FROM address   WHERE addressAreaId=addressRegionId
+        SELECT * FROM mall.address   WHERE addressAreaId=addressRegionId
     </select>
    <!-- /*查询省下的市*/-->
     <select id="cityList" resultType="com.kgc.pojo.Address">
-       SELECT * FROM address
+       SELECT * FROM mall.address
 WHERE addressRegionId=#{addressRegionId} AND addressAreaId!=addressRegionId
     </select>
     <!--/*查询省下市下的区*/-->
     <select id="districtList" resultType="com.kgc.pojo.Address">
-        SELECT * FROM address
+        SELECT * FROM mall.address
 WHERE addressRegionId=#{addressRegionId} AND addressAreaId!=addressRegionId
     </select>
     <select id="getByUserAddress" resultType="com.kgc.pojo.Address">
-       SELECT * FROM address
+       SELECT * FROM mall.address
        WHERE addressAreaId=#{addressAreaId} AND addressAreaId!=addressRegionId
     </select>
 </mapper>

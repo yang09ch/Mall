@@ -19,33 +19,6 @@ $(function () {
         //设置文本
         var title = $(this).children("span").text();
         $("#div_home_title").children("span").text(title);
-        $("#div_home_context").empty();
-        var da= this.getAttribute("data-toggle");
-       /* switch (da) {
-            case ("home"):
-                $("#div_home_context").html("<div id='div_home_context_main'>" + +"</div>");
-                break;
-            case ("product"):
-                $("#div_home_context").html();
-                break;
-            case ("category"):
-                $("#div_home_context_main").html("<%@include file=''%>");
-                break;
-            case ("user"):
-                $("#div_home_context_main").html("<%@include file=''%>");
-                break;
-            case ("order"):
-                $("#div_home_context_main").html("<%@include file=''%>");
-                break;
-            case ("account"):
-                $("#div_home_context_main").html("<%@include file=''%>");
-                break;
-            default:
-                $("#div_home_context_main").html("<%@include file='homeManagePage.jsp '%>");
-           ;
-        }
-*/
-
         document.title = "Tmall管理后台 - " + title;
     });
     //点击用户昵称或下拉箭头时

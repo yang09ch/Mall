@@ -4,6 +4,6 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.kgc.mapper.PropertyValueMapper">
 <select id="getProperValueAllByProductId" resultType="com.kgc.pojo.PropertyValue">
-  SELECT * FROM propertyvalue WHERE propertyValueProductId=#{productId}
+  SELECT * FROM mall.propertyvalue WHERE propertyValueProductId=#{productId}
 </select>
 </mapper>

@@ -4,6 +4,9 @@ import com.kgc.pojo.Productorder;
 import com.kgc.util.PageUtil;
 import org.apache.ibatis.annotations.Param;
 
+import java.util.Date;
+import java.util.List;
+
 /**
  * 商品订单 业务
  */
@@ -40,4 +43,5 @@ public interface ProductorderService {
      *  修改订单信息
      */
     int updateProductor(Productorder productorder);
+    List<Productorder> getTotalByDate(Date beginDate, Date endDate);
 }

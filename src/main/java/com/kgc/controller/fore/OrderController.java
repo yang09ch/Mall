@@ -56,11 +56,6 @@ public class OrderController {
         model.addAttribute("pageUtil",pageUtil);
         return "fore/orderListPage";
     }
-    @RequestMapping("/order/create/{productId}")
-    public String goToBuyCarPage(@PathVariable("productId") Integer productId,Integer product_number){
-
-        return "";
-    }
     @RequestMapping("/order/create/byCart")
     public String toByPage(String order_item_list,HttpSession session,Model model){
         User user = (User)session.getAttribute("user");
@@ -74,7 +69,6 @@ public class OrderController {
         model.addAttribute("cityList", addressService.cityList(substring));
         model.addAttribute("order_receiver",user.getUserNickName());
         model.addAttribute("districtList", addressService.districtList(addressService.cityList(substring).get(0).getAddressAreaId()));
-
         List<Productorderitem> productorderitemList =JSONArray.parseArray(order_item_list,Productorderitem.class);
         BigDecimal orderTotalPrice=new BigDecimal(0);
         for (Productorderitem productorderitem : productorderitemList) {
@@ -106,10 +100,10 @@ public class OrderController {
         model.addAttribute("productOrder",byProductorCode);
         return "fore/productPayPage";
     }
-    @RequestMapping("/order/delivery/{productOrderCode}")//提醒发货
+   /* @RequestMapping("/order/delivery/{productOrderCode}")//提醒发货
     public String delivery(@PathVariable("productOrderCode") String productOrderCode){
         return "";
-    }
+    }*/
     @RequestMapping("/order/confirm")//确认收货
     public String confirm(@RequestParam("productOrderCode") String productOrderCode, Model model){
         Productorder productorder = productorderService.getByProductorCode(productOrderCode);

@@ -7,6 +7,7 @@ import com.kgc.util.PageUtil;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 @Service
 public class ProductorderServiceImpl implements ProductorderService {
@@ -59,5 +60,10 @@ public class ProductorderServiceImpl implements ProductorderService {
     @Override
     public int updateProductor(Productorder productorder) {
         return productorderMapper.updateProductor(productorder);
+    }
+
+    @Override
+    public List<Productorder> getTotalByDate(String beginDate, String endDate) {
+        return productorderMapper.getProductorderDate(beginDate, endDate);
     }
 }

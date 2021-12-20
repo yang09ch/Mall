@@ -5,12 +5,12 @@
 <mapper namespace="com.kgc.mapper.ProductimageMapper">
    <!-- 根据商品id查询 商品图片-->
 <select id="getProductimgeList" resultType="com.kgc.pojo.Productimage">
-    SELECT * FROM productimage  WHERE productimageProductId=#{productimageProductId} AND productimageType=0 LIMIT 1
+    SELECT * FROM mall.productimage  WHERE productimageProductId=#{productimageProductId} AND productimageType=0 LIMIT 1
 </select>
     <select id="getProductImgeYulan" resultType="com.kgc.pojo.Productimage">
-        SELECT * FROM productimage WHERE productimageProductId=#{productimageProductid} AND productimageType=0
+        SELECT * FROM mall.productimage WHERE productimageProductId=#{productimageProductid} AND productimageType=0
     </select>
     <select id="getProductImageXIan" resultType="com.kgc.pojo.Productimage">
-         SELECT * FROM productimage WHERE productimageProductId=#{productimageProductid} AND productimageType=1
+         SELECT * FROM mall.productimage WHERE productimageProductId=#{productimageProductid} AND productimageType=1
     </select>
 </mapper>

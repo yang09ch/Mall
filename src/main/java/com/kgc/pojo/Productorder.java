@@ -20,4 +20,5 @@ public class Productorder implements Serializable {
     private Integer productOrderStatus;//状态
             private Integer productOrderUserId;//订单用户
     private List<Productorderitem> productOrderItemList;//订单明细集合
+    private Integer productOrderCount;
 }

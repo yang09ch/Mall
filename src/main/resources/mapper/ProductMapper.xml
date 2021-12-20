@@ -16,33 +16,33 @@
             </if>
             <if test="productIsEnabled!=null and productIsEnabled!=''">
                 and productIsEnabled in
-                <foreach collection="array" close=")" open="(" separator="," item="productIsEnabled">
+                <foreach collection="array"  open="(" separator="," close=")" item="productIsEnabled">
                     #{productIsEnabled}
                 </foreach>
             </if>
         </where>
     </sql>
 <select id="getProductCount" resultType="int">
-    SELECT COUNT(*) FROM product
+    SELECT COUNT(*) FROM mall.product
     <include refid="productSql"></include>
 </select>
     <select id="getProductLimit" resultType="com.kgc.pojo.Product">
-        select * from product
+        select * from mall.product
         <include refid="productSql"></include>
         limit #{pageIndex},#{pageSize}
     </select>
        <!-- 根据类型id查询 正在销售的-->
     <select id="getProductArray" resultType="com.kgc.pojo.Product">
-        SELECT * FROM product WHERE productCategoryId=#{productCategoryId} AND productIsEnabled IN(0,2)
+        SELECT * FROM mall.product WHERE productCategoryId=#{productCategoryId} AND productIsEnabled IN(0,2)
         ORDER BY productId DESC LIMIT 8
     </select>
 <!--    /*轮播前6*/-->
     <select id="getLunPo" resultType="com.kgc.pojo.Product">
-        SELECT * FROM product WHERE productIsEnabled=2 LIMIT 6
+        SELECT * FROM mall.product WHERE productIsEnabled=2 LIMIT 6
     </select>
 <!--    /*模糊查询商品*/-->
     <select id="getProductAll" resultType="com.kgc.pojo.Product">
-        select * from product
+        select * from mall.product
          <where>
              <if test="productName!='' and productName!=null">
                  and productName like concat('%',#{productName},'%')
@@ -55,12 +55,12 @@
         limit 0,20
     </select>
     <select id="getProductList" resultType="com.kgc.pojo.Product">
-         SELECT * FROM product WHERE productCategoryId=#{productCategoryId} AND productIsEnabled IN(0,2) ORDER BY productId
+         SELECT * FROM mall.product WHERE productCategoryId=#{productCategoryId} AND productIsEnabled IN(0,2) ORDER BY productId
     </select>
     <select id="getProductNameByCount" resultType="int">
-        SELECT COUNT(*) FROM product WHERE productName LIKE CONCAT('%',#{productName},'%') AND productIsEnabled IN(0,2)
+        SELECT COUNT(*) FROM mall.product WHERE productName LIKE CONCAT('%',#{productName},'%') AND productIsEnabled IN(0,2)
     </select>
     <select id="getByProductId" resultType="com.kgc.pojo.Product">
-        select * from product where  productId=#{productId}
+        select * from mall.product where  productId=#{productId}
     </select>
 </mapper>

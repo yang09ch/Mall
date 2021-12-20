@@ -11,9 +11,9 @@
     </resultMap>
     <!--  resultMap="getALL"   -->
 <select id="getCategoryAll"   resultType="com.kgc.pojo.Category" >
- SELECT * FROM category
+ SELECT * FROM mall.category
 </select>
     <select id="getCategoryById" resultType="com.kgc.pojo.Category">
-        select  * from category where categoryId=#{cateId}
+        select  * from mall.category where categoryId=#{cateId}
     </select>
 </mapper>

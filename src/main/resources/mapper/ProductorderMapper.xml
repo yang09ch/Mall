@@ -12,26 +12,26 @@
         </where>
     </sql>
 <select id="getProductorderCount" resultType="int">
-    select count(*) from productorder
+    select count(*) from mall.productorder
     <include refid="getCount"></include>
 </select>
     <select id="getProductorderList" resultType="com.kgc.pojo.Productorder">
-        select * from productorder
+        select * from mall.productorder
         <include refid="getCount"></include>
         order by productorderPayDate desc
         limit #{pageIndex},#{pageSize}
     </select>
     <delete id="removeProductor" parameterType="string">
-        delete from productorder where productorderCode=#{productorderCode}
+        delete from mall.productorder where productorderCode=#{productorderCode}
     </delete>
     <select id="getByProductorCode" resultType="com.kgc.pojo.Productorder">
-          SELECT * FROM productorder WHERE productorderCode=#{productorderCode}
+          SELECT * FROM mall.productorder WHERE productorderCode=#{productorderCode}
     </select>
     <update id="updateProductorStatus" parameterType="string">
-        update productorder set productorderStatus=3,productorderConfirmDate=now() where productorderCode=#{productorderCode}
+        update mall.productorder set productorderStatus=3,productorderConfirmDate=now() where productorderCode=#{productorderCode}
     </update>
     <insert id="addProductor" parameterType="com.kgc.pojo.Productorder">
-        insert into productorder values (null,#{productOrderCode},#{productOrderAddress},#{productOrderDetailAddress},#{productOrderPost},#{productOrderReceiver},#{productOrderMobile},#{productOrderPayDate},#{productOrderDeliveryDate},#{productOrderConfirmDate},#{productOrderStatus},#{productOrderUserId})
+        insert into mall.productorder values (null,#{productOrderCode},#{productOrderAddress},#{productOrderDetailAddress},#{productOrderPost},#{productOrderReceiver},#{productOrderMobile},#{productOrderPayDate},#{productOrderDeliveryDate},#{productOrderConfirmDate},#{productOrderStatus},#{productOrderUserId})
     </insert>
     <update id="updateProductor" parameterType="com.kgc.pojo.Productorder">
         update productorder
@@ -51,4 +51,14 @@
         </set>
         where productorderId=#{productOrderId}
     </update>
+    <select id="getProductorderDate" resultType="com.kgc.pojo.Productorder">
+        SELECT productorderPayDate,COUNT(productorderId) AS productOrderCount ,productorderStatus
+        FROM mall.productorder
+        <where>
+            <if test="staTime!=null and staTime!='' and endTime!=null and endTime!=''">
+                productorderPayDate BETWEEN #{staTime} AND #{endTime}
+            </if>
+        </where>
+        GROUP BY DATE_FORMAT(productorderPayDate,'%Y-%m-%d'),productorderStatus
+    </select>
 </mapper>
